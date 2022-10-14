@@ -1,0 +1,26 @@
+[
+	{
+		"id": "a7e9f094-a5d5-44db-899c-44eba5e0ecb5",
+		"data": [
+			{
+				"text": "Get the next verse",
+				"userDefined": false
+			}
+		],
+		"isTemplate": false,
+		"count": 0,
+		"lang": "en"
+	},
+	{
+		"id": "6b01e7a1-3fc2-4b18-8d5d-75ce6a9a6312",
+		"data": [
+			{
+				"text": "Read me the next verse",
+				"userDefined": false
+			}
+		],
+		"isTemplate": false,
+		"count": 0,
+		"lang": "en"
+	}
+]

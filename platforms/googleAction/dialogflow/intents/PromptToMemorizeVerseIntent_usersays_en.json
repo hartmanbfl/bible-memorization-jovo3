@@ -1,0 +1,38 @@
+[
+	{
+		"id": "58d285d9-d388-4f0e-a8ed-79cfdf3e8706",
+		"data": [
+			{
+				"text": "Memorize a verse",
+				"userDefined": false
+			}
+		],
+		"isTemplate": false,
+		"count": 0,
+		"lang": "en"
+	},
+	{
+		"id": "eb0b9a34-0fde-444f-a844-eb4a3d09dfe4",
+		"data": [
+			{
+				"text": "I want to memorize a verse",
+				"userDefined": false
+			}
+		],
+		"isTemplate": false,
+		"count": 0,
+		"lang": "en"
+	},
+	{
+		"id": "58c8e623-e6a3-4904-863c-3b92360bf7d6",
+		"data": [
+			{
+				"text": "I'd like to memorize a verse",
+				"userDefined": false
+			}
+		],
+		"isTemplate": false,
+		"count": 0,
+		"lang": "en"
+	}
+]

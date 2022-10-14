@@ -1,0 +1,654 @@
+{
+  "invocation": "my bible memorization app",
+  "intents": [
+    {
+			"name": "YesIntent",
+			"phrases": [
+				"yes please",
+				"yup",
+				"yeah",
+				"yes"
+			]
+		},
+		{
+			"name": "NoIntent",
+			"phrases": [
+				"no thank you",
+				"no thank",
+				"nope",
+				"no"
+			]
+		},
+    {
+      "name": "GetOptionsIntent",
+      "phrases": [
+        "Get options",
+        "List options",
+        "List the options",
+        "Get the options",
+        "Tell me the options"
+      ]
+    },
+    {
+      "name": "GetVerseIntent",
+      "phrases": [
+        "Get the next verse",
+        "Read me the next verse"
+      ]
+    },
+    {
+      "name": "PromptToMemorizeVerseIntent",
+      "phrases": [
+        "Memorize a verse",
+        "I want to memorize a verse",
+        "I'd like to memorize a verse"
+      ]
+    },
+    {
+      "name": "ListenToUserReciteTheVerseIntent",
+      "phrases": [
+        "The verse is {passage}"
+      ],
+      "inputs": [
+        {
+          "name": "passage",
+          "type": {
+            "alexa": "AMAZON.SearchQuery",
+            "dialogflow": "@sys.any"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MemorizeVerseIntent",
+      "phrases": [
+        "{book} {chapter} {verse}",
+        "Help me memorize {book} chapter {chapter} verse {verse}",
+        "Memorize {book} {chapter} verse {verse}",
+        "Memorize {book} chapter {chapter} verse {verse}",
+        "Memorize {book} {chapter} verse {verse}",
+        "I want to memorize {book} {chapter} verse {verse}",
+        "I want to memorize {book} chapter {chapter} verse {verse}",
+        "I want to memorize {book} {chapter} verse {verse}",
+        "Will you please help me memorize {book} {chapter} verse {verse}",
+        "Will you please help me to memorize {book} {chapter} verse {verse}",
+        "Please help me memorize {book} {chapter} verse {verse}",
+        "Please help me to memorize {book} {chapter} verse {verse}"
+      ],
+      "inputs": [
+        {
+          "name": "book",
+          "type": "BooksOfTheBibleType",
+          "alexa": {
+            "samples": [
+              "The book is {book}",
+              "It is in {book}",
+              "{book}"
+            ]
+          }
+        },
+        {
+          "name": "chapter",
+          "type": {
+            "alexa": "AMAZON.NUMBER",
+            "dialogflow": "@sys.number"
+          },
+          "alexa": {
+            "samples": [
+              "chapter {chapter}",
+              "Read chapter {chapter}",
+              "I want chapter {chapter}",
+              "Read {chapter}",
+              "{chapter}"
+            ]
+          }
+        },
+        {
+          "name": "verse",
+          "type": {
+            "alexa": "AMAZON.NUMBER",
+            "dialogflow": "@sys.number"
+          },
+          "alexa": {
+            "samples": [
+              "I want verse {verse}",
+              "verse {verse}",
+              "{verse}"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ReadVerseIntent",
+      "phrases": [
+        "Read {book} chapter {chapter} verse {verse}",
+        "Read {book} {chapter} verse {verse}",
+        "Read me {book} chapter {chapter} verse {verse}",
+        "Read me {book} {chapter} verse {verse}",
+        "Will you please read me {book} {chapter} verse {verse}",
+        "Please read {book} {chapter} verse {verse}",
+        "Read a verse"
+      ],
+      "inputs": [
+        {
+          "name": "book",
+          "type": "BooksOfTheBibleType",
+          "alexa": {
+            "samples": [
+              "The book is {book}",
+              "It is in {book}",
+              "{book}"
+            ]
+          }
+        },
+        {
+          "name": "chapter",
+          "type": {
+            "alexa": "AMAZON.NUMBER",
+            "dialogflow": "@sys.number"
+          },
+          "alexa": {
+            "samples": [
+              "chapter {chapter}",
+              "Read chapter {chapter}",
+              "I want chapter {chapter}",
+              "Read {chapter}",
+              "{chapter}"
+            ]
+          }
+        },
+        {
+          "name": "verse",
+          "type": {
+            "alexa": "AMAZON.NUMBER",
+            "dialogflow": "@sys.number"
+          },
+          "alexa": {
+            "samples": [
+              "I want verse {verse}",
+              "verse {verse}",
+              "{verse}"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "inputTypes": [
+    {
+      "name": "BooksOfTheBibleType",
+      "values": [
+        {
+          "value": "paul",
+          "synonyms": [
+            "paul's letters",
+            "paul's epistles",
+            "books written by Paul",
+            "pauls books"
+          ],
+          "id": "PE"
+        },
+        {
+          "value": "bible",
+          "synonyms": [
+            "the bible",
+            "the whole bible",
+            "bible",
+            "entire bible"
+          ],
+          "id": "BIBLE"
+        },
+        {
+          "value": "new testament",
+          "synonyms": [
+            "the new testament"
+          ],
+          "id": "NT"
+        },
+        {
+          "value": "old testament",
+          "synonyms": [
+            "the old testament"
+          ],
+          "id": "OT"
+        },
+        {
+          "value": "revelation",
+          "id": "REV"
+        },
+        {
+          "value": "jude",
+          "id": "JUD"
+        },
+        {
+          "value": "two peter",
+          "synonyms": [
+            "second peter"
+          ],
+          "id": "2PE"
+        },
+        {
+          "value": "one peter",
+          "synonyms": [
+            "first peter"
+          ],
+          "id": "1PE"
+        },
+        {
+          "value": "three john",
+          "synonyms": [
+            "third john"
+          ],
+          "id": "3JN"
+        },
+        {
+          "value": "two john",
+          "synonyms": [
+            "second john"
+          ],
+          "id": "2JN"
+        },
+        {
+          "value": "one john",
+          "synonyms": [
+            "first john"
+          ],
+          "id": "1JN"
+        },
+        {
+          "value": "james",
+          "id": "JAS"
+        },
+        {
+          "value": "hebrews",
+          "id": "HEB"
+        },
+        {
+          "value": "philemon",
+          "id": "PHM"
+        },
+        {
+          "value": "titus",
+          "id": "TIT"
+        },
+        {
+          "value": "two timothy",
+          "synonyms": [
+            "second timothy"
+          ],
+          "id": "2TI"
+        },
+        {
+          "value": "one timothy",
+          "synonyms": [
+            "first timothy"
+          ],
+          "id": "1TI"
+        },
+        {
+          "value": "two thessalonians",
+          "synonyms": [
+            "second thessalonians"
+          ],
+          "id": "2TH"
+        },
+        {
+          "value": "one thessalonians",
+          "synonyms": [
+            "first thessalonians"
+          ],
+          "id": "1TH"
+        },
+        {
+          "value": "colossians",
+          "id": "COL"
+        },
+        {
+          "value": "philippians",
+          "id": "PHP"
+        },
+        {
+          "value": "ephesians",
+          "id": "EPH"
+        },
+        {
+          "value": "galatians",
+          "id": "GAL"
+        },
+        {
+          "value": "two corinthians",
+          "synonyms": [
+            "second corinthians"
+          ],
+          "id": "2CO"
+        },
+        {
+          "value": "one corinthians",
+          "synonyms": [
+            "first corinthians"
+          ],
+          "id": "1CO"
+        },
+        {
+          "value": "romans",
+          "id": "ROM"
+        },
+        {
+          "value": "acts",
+          "id": "ACT"
+        },
+        {
+          "value": "john",
+          "id": "JHN"
+        },
+        {
+          "value": "luke",
+          "id": "LUK"
+        },
+        {
+          "value": "mark",
+          "id": "MRK"
+        },
+        {
+          "value": "matthew",
+          "id": "MAT"
+        },
+        {
+          "value": "malachi",
+          "id": "MAL"
+        },
+        {
+          "value": "zechariah",
+          "id": "ZEC"
+        },
+        {
+          "value": "haggai",
+          "id": "HAG"
+        },
+        {
+          "value": "zephaniah",
+          "id": "ZEP"
+        },
+        {
+          "value": "habbakuk",
+          "id": "HAB"
+        },
+        {
+          "value": "nahum",
+          "id": "NAM"
+        },
+        {
+          "value": "micah",
+          "id": "MIC"
+        },
+        {
+          "value": "jonah",
+          "id": "JON"
+        },
+        {
+          "value": "obadiah",
+          "id": "OBA"
+        },
+        {
+          "value": "amos",
+          "id": "AMO"
+        },
+        {
+          "value": "joel",
+          "id": "JOL"
+        },
+        {
+          "value": "hosea",
+          "id": "HOS"
+        },
+        {
+          "value": "daniel",
+          "id": "DAN"
+        },
+        {
+          "value": "ezekiel",
+          "id": "EZK"
+        },
+        {
+          "value": "lamentations",
+          "id": "LAM"
+        },
+        {
+          "value": "jeremiah",
+          "id": "JER"
+        },
+        {
+          "value": "isaiah",
+          "id": "ISA"
+        },
+        {
+          "value": "song of solomon",
+          "id": "SNG"
+        },
+        {
+          "value": "ecclesiastes",
+          "id": "ECC"
+        },
+        {
+          "value": "proverbs",
+          "id": "PRO"
+        },
+        {
+          "value": "psalm",
+          "synonyms": [
+            "psalms"
+          ],
+          "id": "PSA"
+        },
+        {
+          "value": "job",
+          "id": "JOB"
+        },
+        {
+          "value": "esther",
+          "id": "EST"
+        },
+        {
+          "value": "nehemiah",
+          "id": "NEH"
+        },
+        {
+          "value": "ezra",
+          "id": "EZR"
+        },
+        {
+          "value": "two chronicles",
+          "synonyms": [
+            "second chronicles"
+          ],
+          "id": "2CH"
+        },
+        {
+          "value": "one chronicles",
+          "synonyms": [
+            "first chronicles"
+          ],
+          "id": "1CH"
+        },
+        {
+          "value": "two kings",
+          "synonyms": [
+            "second kings"
+          ],
+          "id": "2KI"
+        },
+        {
+          "value": "one kings",
+          "synonyms": [
+            "first kings"
+          ],
+          "id": "1KI"
+        },
+        {
+          "value": "two samuel",
+          "synonyms": [
+            "second samuel"
+          ],
+          "id": "2SA"
+        },
+        {
+          "value": "one samuel",
+          "synonyms": [
+            "first samuel"
+          ],
+          "id": "1SA"
+        },
+        {
+          "value": "ruth",
+          "id": "RUT"
+        },
+        {
+          "value": "judges",
+          "id": "JDG"
+        },
+        {
+          "value": "joshua",
+          "id": "JOS"
+        },
+        {
+          "value": "deuteronomy",
+          "id": "DEU"
+        },
+        {
+          "value": "numbers",
+          "id": "NUM"
+        },
+        {
+          "value": "leviticus",
+          "id": "LEV"
+        },
+        {
+          "value": "exodus",
+          "id": "EXO"
+        },
+        {
+          "value": "genesis",
+          "id": "GEN"
+        }
+      ]
+    }
+  ],
+  "alexa": {
+    "interactionModel": {
+      "prompts": [
+        {
+					"id": "Slot.Validation.587586657820.833947472197.828571793071",
+					"variations": [
+						{
+							"type": "PlainText",
+							"value": "I don't recognize that book.  Please try again."
+						}
+					]
+				},
+        {
+					"id": "Elicit.Slot.587586657820.833947472197",
+					"variations": [
+						{
+							"type": "PlainText",
+							"value": "I didn't catch which book you wanted.  Will you please repeat it?"
+						}
+					]
+				},
+        {
+					"id": "Elicit.Slot.1449555058286.312557981914",
+					"variations": [
+						{
+							"type": "PlainText",
+							"value": "What chapter do you want?"
+						}
+					]
+				},
+				{
+					"id": "Elicit.Slot.1449555058286.754795822058",
+					"variations": [
+						{
+							"type": "PlainText",
+							"value": "What verse do you want?"
+						}
+					]
+				}
+      ],
+      "dialog": {
+        "intents": [
+          {
+            "name": "ReadVerseIntent",
+            "confirmationRequired": false,
+            "prompts": {},
+            "slots": [
+              {
+                "name": "book",
+                "type": "BooksOfTheBibleType",
+                "elicitationRequired": true,
+                "confirmationRequired": false,
+                "prompts": {
+                  "elicitation": "Elicit.Slot.587586657820.833947472197"
+                }
+              },
+              {
+                "name": "chapter",
+                "type": "AMAZON.NUMBER",
+                "elicitationRequired": true,
+                "confirmationRequired": false,
+                "prompts": {
+                  "elicitation": "Elicit.Slot.1449555058286.312557981914"
+                }
+              },
+              {
+                "name": "verse",
+                "type": "AMAZON.NUMBER",
+                "elicitationRequired": true,
+                "confirmationRequired": false,
+                "prompts": {
+                  "elicitation": "Elicit.Slot.1449555058286.754795822058"
+                }
+              }
+            ],
+            "delegationStrategy": "ALWAYS"
+          }
+        ]
+      },
+      "languageModel": {
+        "intents": [
+          {
+            "name": "AMAZON.CancelIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.HelpIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.StopIntent",
+            "samples": []
+          }
+        ]
+      }
+    }
+  },
+  "dialogflow": {
+    "intents": [
+      {
+        "name": "Default Fallback Intent",
+        "auto": true,
+        "webhookUsed": true,
+        "fallbackIntent": true
+      },
+      {
+        "name": "Default Welcome Intent",
+        "auto": true,
+        "webhookUsed": true,
+        "events": [
+          {
+            "name": "WELCOME"
+          }
+        ]
+      }
+    ]
+  }
+}

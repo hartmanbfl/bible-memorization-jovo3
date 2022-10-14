@@ -1,0 +1,18 @@
+{
+	"id": "ab19b7e1-2756-4a62-b418-e56b8b8067cf",
+	"name": "ListenToUserReciteTheVerseIntent",
+	"auto": true,
+	"webhookUsed": true,
+	"responses": [
+		{
+			"parameters": [
+				{
+					"isList": false,
+					"name": "passage",
+					"value": "$passage",
+					"dataType": "@sys.any"
+				}
+			]
+		}
+	]
+}

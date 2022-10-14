@@ -1,0 +1,20 @@
+[
+	{
+		"id": "a6f2086a-db5b-4f2a-b35e-61e685f5db82",
+		"data": [
+			{
+				"text": "The verse is ",
+				"userDefined": false
+			},
+			{
+				"text": "passage",
+				"userDefined": true,
+				"alias": "passage",
+				"meta": "@sys.any"
+			}
+		],
+		"isTemplate": false,
+		"count": 0,
+		"lang": "en"
+	}
+]

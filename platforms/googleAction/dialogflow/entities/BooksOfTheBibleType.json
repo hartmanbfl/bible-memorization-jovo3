@@ -1,0 +1,9 @@
+{
+	"id": "981dd61d-bf1f-4ae7-bc9b-58f5e9db5741",
+	"name": "BooksOfTheBibleType",
+	"isOverridable": true,
+	"isEnum": false,
+	"automatedExpansion": false,
+	"isRegexp": false,
+	"allowFuzzyExtraction": false
+}

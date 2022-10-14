@@ -1,0 +1,743 @@
+{
+	"interactionModel": {
+		"languageModel": {
+			"invocationName": "my bible memorization app",
+			"types": [
+				{
+					"name": "BooksOfTheBibleType",
+					"values": [
+						{
+							"id": "PE",
+							"name": {
+								"value": "paul",
+								"synonyms": [
+									"paul's letters",
+									"paul's epistles",
+									"books written by Paul",
+									"pauls books"
+								]
+							}
+						},
+						{
+							"id": "BIBLE",
+							"name": {
+								"value": "bible",
+								"synonyms": [
+									"the bible",
+									"the whole bible",
+									"bible",
+									"entire bible"
+								]
+							}
+						},
+						{
+							"id": "NT",
+							"name": {
+								"value": "new testament",
+								"synonyms": [
+									"the new testament"
+								]
+							}
+						},
+						{
+							"id": "OT",
+							"name": {
+								"value": "old testament",
+								"synonyms": [
+									"the old testament"
+								]
+							}
+						},
+						{
+							"id": "REV",
+							"name": {
+								"value": "revelation"
+							}
+						},
+						{
+							"id": "JUD",
+							"name": {
+								"value": "jude"
+							}
+						},
+						{
+							"id": "2PE",
+							"name": {
+								"value": "two peter",
+								"synonyms": [
+									"second peter"
+								]
+							}
+						},
+						{
+							"id": "1PE",
+							"name": {
+								"value": "one peter",
+								"synonyms": [
+									"first peter"
+								]
+							}
+						},
+						{
+							"id": "3JN",
+							"name": {
+								"value": "three john",
+								"synonyms": [
+									"third john"
+								]
+							}
+						},
+						{
+							"id": "2JN",
+							"name": {
+								"value": "two john",
+								"synonyms": [
+									"second john"
+								]
+							}
+						},
+						{
+							"id": "1JN",
+							"name": {
+								"value": "one john",
+								"synonyms": [
+									"first john"
+								]
+							}
+						},
+						{
+							"id": "JAS",
+							"name": {
+								"value": "james"
+							}
+						},
+						{
+							"id": "HEB",
+							"name": {
+								"value": "hebrews"
+							}
+						},
+						{
+							"id": "PHM",
+							"name": {
+								"value": "philemon"
+							}
+						},
+						{
+							"id": "TIT",
+							"name": {
+								"value": "titus"
+							}
+						},
+						{
+							"id": "2TI",
+							"name": {
+								"value": "two timothy",
+								"synonyms": [
+									"second timothy"
+								]
+							}
+						},
+						{
+							"id": "1TI",
+							"name": {
+								"value": "one timothy",
+								"synonyms": [
+									"first timothy"
+								]
+							}
+						},
+						{
+							"id": "2TH",
+							"name": {
+								"value": "two thessalonians",
+								"synonyms": [
+									"second thessalonians"
+								]
+							}
+						},
+						{
+							"id": "1TH",
+							"name": {
+								"value": "one thessalonians",
+								"synonyms": [
+									"first thessalonians"
+								]
+							}
+						},
+						{
+							"id": "COL",
+							"name": {
+								"value": "colossians"
+							}
+						},
+						{
+							"id": "PHP",
+							"name": {
+								"value": "philippians"
+							}
+						},
+						{
+							"id": "EPH",
+							"name": {
+								"value": "ephesians"
+							}
+						},
+						{
+							"id": "GAL",
+							"name": {
+								"value": "galatians"
+							}
+						},
+						{
+							"id": "2CO",
+							"name": {
+								"value": "two corinthians",
+								"synonyms": [
+									"second corinthians"
+								]
+							}
+						},
+						{
+							"id": "1CO",
+							"name": {
+								"value": "one corinthians",
+								"synonyms": [
+									"first corinthians"
+								]
+							}
+						},
+						{
+							"id": "ROM",
+							"name": {
+								"value": "romans"
+							}
+						},
+						{
+							"id": "ACT",
+							"name": {
+								"value": "acts"
+							}
+						},
+						{
+							"id": "JHN",
+							"name": {
+								"value": "john"
+							}
+						},
+						{
+							"id": "LUK",
+							"name": {
+								"value": "luke"
+							}
+						},
+						{
+							"id": "MRK",
+							"name": {
+								"value": "mark"
+							}
+						},
+						{
+							"id": "MAT",
+							"name": {
+								"value": "matthew"
+							}
+						},
+						{
+							"id": "MAL",
+							"name": {
+								"value": "malachi"
+							}
+						},
+						{
+							"id": "ZEC",
+							"name": {
+								"value": "zechariah"
+							}
+						},
+						{
+							"id": "HAG",
+							"name": {
+								"value": "haggai"
+							}
+						},
+						{
+							"id": "ZEP",
+							"name": {
+								"value": "zephaniah"
+							}
+						},
+						{
+							"id": "HAB",
+							"name": {
+								"value": "habbakuk"
+							}
+						},
+						{
+							"id": "NAM",
+							"name": {
+								"value": "nahum"
+							}
+						},
+						{
+							"id": "MIC",
+							"name": {
+								"value": "micah"
+							}
+						},
+						{
+							"id": "JON",
+							"name": {
+								"value": "jonah"
+							}
+						},
+						{
+							"id": "OBA",
+							"name": {
+								"value": "obadiah"
+							}
+						},
+						{
+							"id": "AMO",
+							"name": {
+								"value": "amos"
+							}
+						},
+						{
+							"id": "JOL",
+							"name": {
+								"value": "joel"
+							}
+						},
+						{
+							"id": "HOS",
+							"name": {
+								"value": "hosea"
+							}
+						},
+						{
+							"id": "DAN",
+							"name": {
+								"value": "daniel"
+							}
+						},
+						{
+							"id": "EZK",
+							"name": {
+								"value": "ezekiel"
+							}
+						},
+						{
+							"id": "LAM",
+							"name": {
+								"value": "lamentations"
+							}
+						},
+						{
+							"id": "JER",
+							"name": {
+								"value": "jeremiah"
+							}
+						},
+						{
+							"id": "ISA",
+							"name": {
+								"value": "isaiah"
+							}
+						},
+						{
+							"id": "SNG",
+							"name": {
+								"value": "song of solomon"
+							}
+						},
+						{
+							"id": "ECC",
+							"name": {
+								"value": "ecclesiastes"
+							}
+						},
+						{
+							"id": "PRO",
+							"name": {
+								"value": "proverbs"
+							}
+						},
+						{
+							"id": "PSA",
+							"name": {
+								"value": "psalm",
+								"synonyms": [
+									"psalms"
+								]
+							}
+						},
+						{
+							"id": "JOB",
+							"name": {
+								"value": "job"
+							}
+						},
+						{
+							"id": "EST",
+							"name": {
+								"value": "esther"
+							}
+						},
+						{
+							"id": "NEH",
+							"name": {
+								"value": "nehemiah"
+							}
+						},
+						{
+							"id": "EZR",
+							"name": {
+								"value": "ezra"
+							}
+						},
+						{
+							"id": "2CH",
+							"name": {
+								"value": "two chronicles",
+								"synonyms": [
+									"second chronicles"
+								]
+							}
+						},
+						{
+							"id": "1CH",
+							"name": {
+								"value": "one chronicles",
+								"synonyms": [
+									"first chronicles"
+								]
+							}
+						},
+						{
+							"id": "2KI",
+							"name": {
+								"value": "two kings",
+								"synonyms": [
+									"second kings"
+								]
+							}
+						},
+						{
+							"id": "1KI",
+							"name": {
+								"value": "one kings",
+								"synonyms": [
+									"first kings"
+								]
+							}
+						},
+						{
+							"id": "2SA",
+							"name": {
+								"value": "two samuel",
+								"synonyms": [
+									"second samuel"
+								]
+							}
+						},
+						{
+							"id": "1SA",
+							"name": {
+								"value": "one samuel",
+								"synonyms": [
+									"first samuel"
+								]
+							}
+						},
+						{
+							"id": "RUT",
+							"name": {
+								"value": "ruth"
+							}
+						},
+						{
+							"id": "JDG",
+							"name": {
+								"value": "judges"
+							}
+						},
+						{
+							"id": "JOS",
+							"name": {
+								"value": "joshua"
+							}
+						},
+						{
+							"id": "DEU",
+							"name": {
+								"value": "deuteronomy"
+							}
+						},
+						{
+							"id": "NUM",
+							"name": {
+								"value": "numbers"
+							}
+						},
+						{
+							"id": "LEV",
+							"name": {
+								"value": "leviticus"
+							}
+						},
+						{
+							"id": "EXO",
+							"name": {
+								"value": "exodus"
+							}
+						},
+						{
+							"id": "GEN",
+							"name": {
+								"value": "genesis"
+							}
+						}
+					]
+				}
+			],
+			"intents": [
+				{
+					"name": "YesIntent",
+					"samples": [
+						"yes please",
+						"yup",
+						"yeah",
+						"yes"
+					]
+				},
+				{
+					"name": "NoIntent",
+					"samples": [
+						"no thank you",
+						"no thank",
+						"nope",
+						"no"
+					]
+				},
+				{
+					"name": "GetOptionsIntent",
+					"samples": [
+						"Get options",
+						"List options",
+						"List the options",
+						"Get the options",
+						"Tell me the options"
+					]
+				},
+				{
+					"name": "GetVerseIntent",
+					"samples": [
+						"Get the next verse",
+						"Read me the next verse"
+					]
+				},
+				{
+					"name": "PromptToMemorizeVerseIntent",
+					"samples": [
+						"Memorize a verse",
+						"I want to memorize a verse",
+						"I'd like to memorize a verse"
+					]
+				},
+				{
+					"name": "ListenToUserReciteTheVerseIntent",
+					"samples": [
+						"The verse is {passage}"
+					],
+					"slots": [
+						{
+							"name": "passage",
+							"type": "AMAZON.SearchQuery"
+						}
+					]
+				},
+				{
+					"name": "MemorizeVerseIntent",
+					"samples": [
+						"{book} {chapter} {verse}",
+						"Help me memorize {book} chapter {chapter} verse {verse}",
+						"Memorize {book} {chapter} verse {verse}",
+						"Memorize {book} chapter {chapter} verse {verse}",
+						"Memorize {book} {chapter} verse {verse}",
+						"I want to memorize {book} {chapter} verse {verse}",
+						"I want to memorize {book} chapter {chapter} verse {verse}",
+						"I want to memorize {book} {chapter} verse {verse}",
+						"Will you please help me memorize {book} {chapter} verse {verse}",
+						"Will you please help me to memorize {book} {chapter} verse {verse}",
+						"Please help me memorize {book} {chapter} verse {verse}",
+						"Please help me to memorize {book} {chapter} verse {verse}"
+					],
+					"slots": [
+						{
+							"name": "book",
+							"type": "BooksOfTheBibleType",
+							"samples": [
+								"The book is {book}",
+								"It is in {book}",
+								"{book}"
+							]
+						},
+						{
+							"name": "chapter",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"chapter {chapter}",
+								"Read chapter {chapter}",
+								"I want chapter {chapter}",
+								"Read {chapter}",
+								"{chapter}"
+							]
+						},
+						{
+							"name": "verse",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"I want verse {verse}",
+								"verse {verse}",
+								"{verse}"
+							]
+						}
+					]
+				},
+				{
+					"name": "ReadVerseIntent",
+					"samples": [
+						"Read {book} chapter {chapter} verse {verse}",
+						"Read {book} {chapter} verse {verse}",
+						"Read me {book} chapter {chapter} verse {verse}",
+						"Read me {book} {chapter} verse {verse}",
+						"Will you please read me {book} {chapter} verse {verse}",
+						"Please read {book} {chapter} verse {verse}",
+						"Read a verse"
+					],
+					"slots": [
+						{
+							"name": "book",
+							"type": "BooksOfTheBibleType",
+							"samples": [
+								"The book is {book}",
+								"It is in {book}",
+								"{book}"
+							]
+						},
+						{
+							"name": "chapter",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"chapter {chapter}",
+								"Read chapter {chapter}",
+								"I want chapter {chapter}",
+								"Read {chapter}",
+								"{chapter}"
+							]
+						},
+						{
+							"name": "verse",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"I want verse {verse}",
+								"verse {verse}",
+								"{verse}"
+							]
+						}
+					]
+				},
+				{
+					"name": "AMAZON.CancelIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.HelpIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.StopIntent",
+					"samples": []
+				}
+			]
+		},
+		"prompts": [
+			{
+				"id": "Slot.Validation.587586657820.833947472197.828571793071",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "I don't recognize that book.  Please try again."
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.587586657820.833947472197",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "I didn't catch which book you wanted.  Will you please repeat it?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.1449555058286.312557981914",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "What chapter do you want?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.1449555058286.754795822058",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "What verse do you want?"
+					}
+				]
+			}
+		],
+		"dialog": {
+			"intents": [
+				{
+					"name": "ReadVerseIntent",
+					"confirmationRequired": false,
+					"prompts": {},
+					"slots": [
+						{
+							"name": "book",
+							"type": "BooksOfTheBibleType",
+							"elicitationRequired": true,
+							"confirmationRequired": false,
+							"prompts": {
+								"elicitation": "Elicit.Slot.587586657820.833947472197"
+							}
+						},
+						{
+							"name": "chapter",
+							"type": "AMAZON.NUMBER",
+							"elicitationRequired": true,
+							"confirmationRequired": false,
+							"prompts": {
+								"elicitation": "Elicit.Slot.1449555058286.312557981914"
+							}
+						},
+						{
+							"name": "verse",
+							"type": "AMAZON.NUMBER",
+							"elicitationRequired": true,
+							"confirmationRequired": false,
+							"prompts": {
+								"elicitation": "Elicit.Slot.1449555058286.754795822058"
+							}
+						}
+					],
+					"delegationStrategy": "ALWAYS"
+				}
+			]
+		}
+	}
+}

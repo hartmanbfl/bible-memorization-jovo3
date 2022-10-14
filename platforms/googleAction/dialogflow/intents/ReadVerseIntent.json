@@ -1,0 +1,30 @@
+{
+	"id": "4535266f-a5af-4577-a763-7863d576db72",
+	"name": "ReadVerseIntent",
+	"auto": true,
+	"webhookUsed": true,
+	"responses": [
+		{
+			"parameters": [
+				{
+					"isList": false,
+					"name": "book",
+					"value": "$book",
+					"dataType": "@BooksOfTheBibleType"
+				},
+				{
+					"isList": false,
+					"name": "chapter",
+					"value": "$chapter",
+					"dataType": "@sys.number"
+				},
+				{
+					"isList": false,
+					"name": "verse",
+					"value": "$verse",
+					"dataType": "@sys.number"
+				}
+			]
+		}
+	]
+}
