@@ -1,0 +1,18 @@
+{
+	"id": "13ef9bef-effd-43ea-8734-87e381661862",
+	"name": "GetRatingIntent",
+	"auto": true,
+	"webhookUsed": true,
+	"responses": [
+		{
+			"parameters": [
+				{
+					"isList": false,
+					"name": "rating",
+					"value": "$rating",
+					"dataType": "@sys.number"
+				}
+			]
+		}
+	]
+}

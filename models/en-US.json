@@ -1,5 +1,5 @@
 {
-  "invocation": "my bible memorization app",
+  "invocation": "bible trainer",
   "intents": [
     {
 			"name": "YesIntent",
@@ -20,6 +20,204 @@
 			]
 		},
     {
+      "name":"GetRatingIntent",
+      "phrases":[
+        "{rating}"
+      ],
+      "inputs":[
+        {
+          "name": "rating",
+          "type": {
+            "alexa": "AMAZON.NUMBER",
+            "dialogflow": "@sys.number"
+          }
+        }
+      ]
+    },
+    {
+      "name":"HowManyVersesIntent",
+      "phrases":[
+        "How many verses are in my plan",
+        "for the number of verses in my plan",
+        "for the number of verses in the plan",
+        "for the number of verses",
+        "How many verses are in the memory plan",
+        "How many verses are in my memorization plan"
+      ]
+    },
+    {
+      "name":"WhichVersesInPlanIntent",
+      "phrases":[
+        "which verses are in my plan",
+        "what verses are in my plan",
+        "which verses are in the plan",
+        "what verses are in the plan",
+        "which verses are in the memorization plan",
+        "what verses are in the memorization plan",
+        "which verses are in my memorization plan",
+        "what verses are in my memorization plan",
+        "which verses are in the memory plan",
+        "what verses are in the memory plan",
+        "which verses are in my memory plan",
+        "what verses are in my memory plan",
+        "for the verses in the plan",
+        "for the verses in my plan",
+        "for all the verses in my plan",
+        "for all the verses in the plan",
+        "for my plan",
+        "for my memorization plan",
+        "for my memory plan"
+      ]
+    },
+    {
+      "name":"AddVerseToPlanIntent",
+      "phrases":[
+        "add {book} {chapter} {verse} to my plan"
+      ],
+      "inputs":[
+        {
+          "name": "book",
+          "type": "BooksOfTheBibleType",
+          "alexa": {
+            "samples": [
+              "The book is {book}",
+              "It is in {book}",
+              "{book}"
+            ]
+          }
+        },
+        {
+          "name": "chapter",
+          "type": {
+            "alexa": "AMAZON.NUMBER",
+            "dialogflow": "@sys.number"
+          },
+          "alexa": {
+            "samples": [
+              "chapter {chapter}",
+              "Read chapter {chapter}",
+              "I want chapter {chapter}",
+              "Read {chapter}",
+              "{chapter}"
+            ]
+          }
+        },
+        {
+          "name": "verse",
+          "type": {
+            "alexa": "AMAZON.NUMBER",
+            "dialogflow": "@sys.number"
+          },
+          "alexa": {
+            "samples": [
+              "I want verse {verse}",
+              "verse {verse}",
+              "{verse}"
+            ]
+          }
+        } 
+      ]
+    },
+    {
+      "name":"RemoveVerseFromPlanIntent",
+      "phrases":[
+        "remove {book} {chapter} {verse} from my plan"
+      ],
+      "inputs":[
+        {
+          "name": "book",
+          "type": "BooksOfTheBibleType",
+          "alexa": {
+            "samples": [
+              "The book is {book}",
+              "It is in {book}",
+              "{book}"
+            ]
+          }
+        },
+        {
+          "name": "chapter",
+          "type": {
+            "alexa": "AMAZON.NUMBER",
+            "dialogflow": "@sys.number"
+          },
+          "alexa": {
+            "samples": [
+              "chapter {chapter}",
+              "Read chapter {chapter}",
+              "I want chapter {chapter}",
+              "Read {chapter}",
+              "{chapter}"
+            ]
+          }
+        },
+        {
+          "name": "verse",
+          "type": {
+            "alexa": "AMAZON.NUMBER",
+            "dialogflow": "@sys.number"
+          },
+          "alexa": {
+            "samples": [
+              "I want verse {verse}",
+              "verse {verse}",
+              "{verse}"
+            ]
+          }
+        } 
+      ]
+    },
+    {
+      "name":"ReadVersesWithPausesIntent",
+      "phrases":[
+        "help me memorize {book} {chapter} {verse}",
+        "help me memorize {book} chapter {chapter} verse {verse}"
+      ],
+      "inputs": [
+        {
+          "name": "book",
+          "type": "BooksOfTheBibleType",
+          "alexa": {
+            "samples": [
+              "The book is {book}",
+              "It is in {book}",
+              "{book}"
+            ]
+          }
+        },
+        {
+          "name": "chapter",
+          "type": {
+            "alexa": "AMAZON.NUMBER",
+            "dialogflow": "@sys.number"
+          },
+          "alexa": {
+            "samples": [
+              "chapter {chapter}",
+              "Read chapter {chapter}",
+              "I want chapter {chapter}",
+              "Read {chapter}",
+              "{chapter}"
+            ]
+          }
+        },
+        {
+          "name": "verse",
+          "type": {
+            "alexa": "AMAZON.NUMBER",
+            "dialogflow": "@sys.number"
+          },
+          "alexa": {
+            "samples": [
+              "I want verse {verse}",
+              "verse {verse}",
+              "{verse}"
+            ]
+          }
+        }
+      ] 
+    },
+    {
       "name": "GetOptionsIntent",
       "phrases": [
         "Get options",
@@ -30,10 +228,12 @@
       ]
     },
     {
-      "name": "GetVerseIntent",
+      "name": "GetRandomVerseIntent",
       "phrases": [
-        "Get the next verse",
-        "Read me the next verse"
+        "Get a random verse",
+        "Get a random verse from my list",
+        "Read me a random verse from my list",
+        "Read me a verse from my list"
       ]
     },
     {
@@ -62,8 +262,6 @@
     {
       "name": "MemorizeVerseIntent",
       "phrases": [
-        "{book} {chapter} {verse}",
-        "Help me memorize {book} chapter {chapter} verse {verse}",
         "Memorize {book} {chapter} verse {verse}",
         "Memorize {book} chapter {chapter} verse {verse}",
         "Memorize {book} {chapter} verse {verse}",
@@ -71,9 +269,7 @@
         "I want to memorize {book} chapter {chapter} verse {verse}",
         "I want to memorize {book} {chapter} verse {verse}",
         "Will you please help me memorize {book} {chapter} verse {verse}",
-        "Will you please help me to memorize {book} {chapter} verse {verse}",
-        "Please help me memorize {book} {chapter} verse {verse}",
-        "Please help me to memorize {book} {chapter} verse {verse}"
+        "Will you please help me to memorize {book} {chapter} verse {verse}"
       ],
       "inputs": [
         {
@@ -122,6 +318,7 @@
     {
       "name": "ReadVerseIntent",
       "phrases": [
+        "{book} {chapter} {verse}",
         "Read {book} chapter {chapter} verse {verse}",
         "Read {book} {chapter} verse {verse}",
         "Read me {book} chapter {chapter} verse {verse}",
@@ -626,7 +823,23 @@
           {
             "name": "AMAZON.StopIntent",
             "samples": []
-          }
+          },
+          {
+						"name": "AMAZON.NextIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.PreviousIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.PauseIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.ResumeIntent",
+						"samples": []
+					}
         ]
       }
     }

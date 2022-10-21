@@ -17,6 +17,7 @@ const strongEmphasis = `<emphasis level="strong">`
 const endEmphasis = `</emphasis>`
 const one_sec_pause = `<break time="1s"/>`;
 const two_sec_pause = `<break time="2s"/>`;
+const three_sec_pause = `<break time="3s"/>`;
 
 const positiveResponse = `<audio src="soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_positive_response_01"/>`;
 const negativeResponse = `<audio src="soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_negative_response_01"/>`;

@@ -36,3 +36,5 @@
 # Building and deploying steps
 1.  jovo build
 2.  jovo deploy --ask-profile edot
+3.  jovo3 get alexaSkill --skill-id amzn1.ask.skill.97d8429a-8c3f-4f53-8172-32c1d1f93ede --ask-profile edot
+

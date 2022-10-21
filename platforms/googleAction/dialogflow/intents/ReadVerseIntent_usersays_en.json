@@ -1,6 +1,40 @@
 [
 	{
-		"id": "c05dd680-2d5a-4e29-abf8-747e2b66de63",
+		"id": "676594d2-a9f1-4569-8f5e-7480dd4462b6",
+		"data": [
+			{
+				"text": "book",
+				"userDefined": true,
+				"alias": "book",
+				"meta": "@BooksOfTheBibleType"
+			},
+			{
+				"text": " ",
+				"userDefined": false
+			},
+			{
+				"text": "chapter",
+				"userDefined": true,
+				"alias": "chapter",
+				"meta": "@sys.number"
+			},
+			{
+				"text": " ",
+				"userDefined": false
+			},
+			{
+				"text": "verse",
+				"userDefined": true,
+				"alias": "verse",
+				"meta": "@sys.number"
+			}
+		],
+		"isTemplate": false,
+		"count": 0,
+		"lang": "en"
+	},
+	{
+		"id": "cd8d0bf2-b1c5-4311-a08a-e437c2d7c88a",
 		"data": [
 			{
 				"text": "Read ",
@@ -38,7 +72,7 @@
 		"lang": "en"
 	},
 	{
-		"id": "296cffad-444c-43eb-b87e-a2d47546d8bc",
+		"id": "cf74b54f-4a21-4d10-881d-0eb623374a55",
 		"data": [
 			{
 				"text": "Read ",
@@ -76,7 +110,7 @@
 		"lang": "en"
 	},
 	{
-		"id": "24f769ff-8c49-4ed0-ac4d-25619ea2640f",
+		"id": "a76571d8-43ef-4c3f-86f7-11dd764c3da0",
 		"data": [
 			{
 				"text": "Read me ",
@@ -114,7 +148,7 @@
 		"lang": "en"
 	},
 	{
-		"id": "d51f7397-a09c-4563-bc70-cb8a2ec54f76",
+		"id": "fd4eae7d-20fc-45c5-9d96-838f6b720efa",
 		"data": [
 			{
 				"text": "Read me ",
@@ -152,7 +186,7 @@
 		"lang": "en"
 	},
 	{
-		"id": "64498d4f-e259-428d-9057-e13b19ef18c9",
+		"id": "d2c005a2-1e64-4f77-8aa4-cae9da651f4d",
 		"data": [
 			{
 				"text": "Will you please read me ",
@@ -190,7 +224,7 @@
 		"lang": "en"
 	},
 	{
-		"id": "8ffd90de-8980-4966-95dc-bac3f5a27f56",
+		"id": "9654d854-0e8b-4b7c-b9a0-d53bc0b51731",
 		"data": [
 			{
 				"text": "Please read ",
@@ -228,7 +262,7 @@
 		"lang": "en"
 	},
 	{
-		"id": "0fc73c26-4592-485c-9a68-b4fb41de084a",
+		"id": "12fcc3eb-1da3-4beb-9ca9-991b86d9a308",
 		"data": [
 			{
 				"text": "Read a verse",

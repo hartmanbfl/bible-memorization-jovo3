@@ -1,6 +1,6 @@
 {
-	"id": "7a03b29c-82d9-4a49-b7de-e3155252ec5d",
-	"name": "MemorizeVerseIntent",
+	"id": "2ae996a0-be5d-44cc-be5b-9bd4b167b309",
+	"name": "ReadVersesWithPausesIntent",
 	"auto": true,
 	"webhookUsed": true,
 	"responses": [

@@ -1,0 +1,44 @@
+[
+	{
+		"id": "254b5ed4-89ee-47d6-b46b-c8e2f1467bf8",
+		"data": [
+			{
+				"text": "remove ",
+				"userDefined": false
+			},
+			{
+				"text": "book",
+				"userDefined": true,
+				"alias": "book",
+				"meta": "@BooksOfTheBibleType"
+			},
+			{
+				"text": " ",
+				"userDefined": false
+			},
+			{
+				"text": "chapter",
+				"userDefined": true,
+				"alias": "chapter",
+				"meta": "@sys.number"
+			},
+			{
+				"text": " ",
+				"userDefined": false
+			},
+			{
+				"text": "verse",
+				"userDefined": true,
+				"alias": "verse",
+				"meta": "@sys.number"
+			},
+			{
+				"text": " from my plan",
+				"userDefined": false
+			}
+		],
+		"isTemplate": false,
+		"count": 0,
+		"lang": "en"
+	}
+]

@@ -71,10 +71,26 @@ function removePunctuation(sourceStr) {
   return finalStr;
 }
 
+// get number of words in a string
+function wordCount(str) { 
+  return str.split(" ").length;
+}
+
+// TBD - good algorithm for pausing between words
+function getPauseCount(numWords) {
+  // use 150 wpm = 2.5 wps
+  let pause = Math.ceil(numWords / 2.5);
+  if (pause >= 10) pause = 10;
+  return pause;
+}
+
+
 module.exports = {
+  getPauseCount,
   getRandomNumber,
   removePunctuation,
   shuffle,
   similarity,
-  stripHtml
+  stripHtml,
+  wordCount
 }

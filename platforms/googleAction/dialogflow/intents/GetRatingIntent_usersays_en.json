@@ -1,0 +1,16 @@
+[
+	{
+		"id": "6159ca69-882a-44dc-88ba-8b0627f8bfbf",
+		"data": [
+			{
+				"text": "rating",
+				"userDefined": true,
+				"alias": "rating",
+				"meta": "@sys.number"
+			}
+		],
+		"isTemplate": false,
+		"count": 0,
+		"lang": "en"
+	}
+]

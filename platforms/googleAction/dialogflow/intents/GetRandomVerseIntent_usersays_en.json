@@ -1,9 +1,9 @@
 [
 	{
-		"id": "3c3113b8-ac7b-4d70-81a7-e7a8221b407e",
+		"id": "263c31da-250a-4ea0-a5b5-2c9585e55710",
 		"data": [
 			{
-				"text": "no thank you",
+				"text": "Get a random verse",
 				"userDefined": false
 			}
 		],
@@ -12,10 +12,10 @@
 		"lang": "en"
 	},
 	{
-		"id": "5248b5f2-cb5c-485c-8591-cc751e003bde",
+		"id": "b7cc9107-ccf8-4616-b921-debc3a167234",
 		"data": [
 			{
-				"text": "no thank",
+				"text": "Get a random verse from my list",
 				"userDefined": false
 			}
 		],
@@ -24,10 +24,10 @@
 		"lang": "en"
 	},
 	{
-		"id": "69a75711-1654-40b4-b2d2-3d72df4a97d3",
+		"id": "4de9050b-7c50-4704-855a-08df4b2b1a7d",
 		"data": [
 			{
-				"text": "nope",
+				"text": "Read me a random verse from my list",
 				"userDefined": false
 			}
 		],
@@ -36,10 +36,10 @@
 		"lang": "en"
 	},
 	{
-		"id": "56b66811-871c-46da-a006-7336ca8a30b5",
+		"id": "9721c0ec-5d8d-4f3d-ba1a-fe1d0aa00d8b",
 		"data": [
 			{
-				"text": "no",
+				"text": "Read me a verse from my list",
 				"userDefined": false
 			}
 		],

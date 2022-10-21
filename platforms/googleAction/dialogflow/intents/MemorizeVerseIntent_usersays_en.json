@@ -1,78 +1,6 @@
 [
 	{
-		"id": "87484991-b59a-403d-b62e-dd24d0de65db",
-		"data": [
-			{
-				"text": "book",
-				"userDefined": true,
-				"alias": "book",
-				"meta": "@BooksOfTheBibleType"
-			},
-			{
-				"text": " ",
-				"userDefined": false
-			},
-			{
-				"text": "chapter",
-				"userDefined": true,
-				"alias": "chapter",
-				"meta": "@sys.number"
-			},
-			{
-				"text": " ",
-				"userDefined": false
-			},
-			{
-				"text": "verse",
-				"userDefined": true,
-				"alias": "verse",
-				"meta": "@sys.number"
-			}
-		],
-		"isTemplate": false,
-		"count": 0,
-		"lang": "en"
-	},
-	{
-		"id": "aeb2cc74-db49-4adc-bd05-621da6da0e9d",
-		"data": [
-			{
-				"text": "Help me memorize ",
-				"userDefined": false
-			},
-			{
-				"text": "book",
-				"userDefined": true,
-				"alias": "book",
-				"meta": "@BooksOfTheBibleType"
-			},
-			{
-				"text": " chapter ",
-				"userDefined": false
-			},
-			{
-				"text": "chapter",
-				"userDefined": true,
-				"alias": "chapter",
-				"meta": "@sys.number"
-			},
-			{
-				"text": " verse ",
-				"userDefined": false
-			},
-			{
-				"text": "verse",
-				"userDefined": true,
-				"alias": "verse",
-				"meta": "@sys.number"
-			}
-		],
-		"isTemplate": false,
-		"count": 0,
-		"lang": "en"
-	},
-	{
-		"id": "7e4fe145-c444-46e4-89ea-605bb36b50bc",
+		"id": "d7267def-983a-4d1e-ba2e-ac62fcb5819f",
 		"data": [
 			{
 				"text": "Memorize ",
@@ -110,7 +38,7 @@
 		"lang": "en"
 	},
 	{
-		"id": "51b7edb9-553d-4554-80ed-38969f534621",
+		"id": "fe6b9825-435e-4c6f-9c4d-793ffec2e06b",
 		"data": [
 			{
 				"text": "Memorize ",
@@ -148,7 +76,7 @@
 		"lang": "en"
 	},
 	{
-		"id": "d8869bf2-400c-41fe-bddf-1209950c1f29",
+		"id": "ee93d2d8-e7d6-44e4-b004-e7f39ae54811",
 		"data": [
 			{
 				"text": "Memorize ",
@@ -186,7 +114,7 @@
 		"lang": "en"
 	},
 	{
-		"id": "b081fd98-b99b-45ef-aae0-6583654e2052",
+		"id": "3530a9c6-1f14-4c42-95b5-b47396d1e6c0",
 		"data": [
 			{
 				"text": "I want to memorize ",
@@ -224,7 +152,7 @@
 		"lang": "en"
 	},
 	{
-		"id": "e1c226d7-e994-4f57-adb2-1dd6530f64da",
+		"id": "4789436e-8661-4579-98c1-6a596b60ed2b",
 		"data": [
 			{
 				"text": "I want to memorize ",
@@ -262,7 +190,7 @@
 		"lang": "en"
 	},
 	{
-		"id": "1a56ed31-e21c-4477-8596-08ff873b84d3",
+		"id": "d03b1c87-3efc-4bba-aa50-7aa74dfe72b5",
 		"data": [
 			{
 				"text": "I want to memorize ",
@@ -300,7 +228,7 @@
 		"lang": "en"
 	},
 	{
-		"id": "a6da2204-36de-4ffb-8eb4-0584442dac72",
+		"id": "4caf59a8-1255-49fa-b30e-5fb545173c4f",
 		"data": [
 			{
 				"text": "Will you please help me memorize ",
@@ -338,86 +266,10 @@
 		"lang": "en"
 	},
 	{
-		"id": "2989af8a-2a43-43ff-996a-930a63dc35d8",
+		"id": "6a47105d-d70d-4195-8d75-72bff684de71",
 		"data": [
 			{
 				"text": "Will you please help me to memorize ",
-				"userDefined": false
-			},
-			{
-				"text": "book",
-				"userDefined": true,
-				"alias": "book",
-				"meta": "@BooksOfTheBibleType"
-			},
-			{
-				"text": " ",
-				"userDefined": false
-			},
-			{
-				"text": "chapter",
-				"userDefined": true,
-				"alias": "chapter",
-				"meta": "@sys.number"
-			},
-			{
-				"text": " verse ",
-				"userDefined": false
-			},
-			{
-				"text": "verse",
-				"userDefined": true,
-				"alias": "verse",
-				"meta": "@sys.number"
-			}
-		],
-		"isTemplate": false,
-		"count": 0,
-		"lang": "en"
-	},
-	{
-		"id": "2f89a696-3aae-45f9-881b-4a3f2fe2760b",
-		"data": [
-			{
-				"text": "Please help me memorize ",
-				"userDefined": false
-			},
-			{
-				"text": "book",
-				"userDefined": true,
-				"alias": "book",
-				"meta": "@BooksOfTheBibleType"
-			},
-			{
-				"text": " ",
-				"userDefined": false
-			},
-			{
-				"text": "chapter",
-				"userDefined": true,
-				"alias": "chapter",
-				"meta": "@sys.number"
-			},
-			{
-				"text": " verse ",
-				"userDefined": false
-			},
-			{
-				"text": "verse",
-				"userDefined": true,
-				"alias": "verse",
-				"meta": "@sys.number"
-			}
-		],
-		"isTemplate": false,
-		"count": 0,
-		"lang": "en"
-	},
-	{
-		"id": "f22a1fa7-965c-4e02-9898-64e6830fccf1",
-		"data": [
-			{
-				"text": "Please help me to memorize ",
 				"userDefined": false
 			},
 			{

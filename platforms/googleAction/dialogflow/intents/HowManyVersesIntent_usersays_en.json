@@ -1,0 +1,74 @@
+[
+	{
+		"id": "3ad0486e-d0c6-484c-b906-4b5a3817b587",
+		"data": [
+			{
+				"text": "How many verses are in my plan",
+				"userDefined": false
+			}
+		],
+		"isTemplate": false,
+		"count": 0,
+		"lang": "en"
+	},
+	{
+		"id": "8dbf5178-6330-41a9-b5a6-0edf122b0100",
+		"data": [
+			{
+				"text": "for the number of verses in my plan",
+				"userDefined": false
+			}
+		],
+		"isTemplate": false,
+		"count": 0,
+		"lang": "en"
+	},
+	{
+		"id": "8c8d89cf-c0f6-4f6b-a5df-7f6d027de814",
+		"data": [
+			{
+				"text": "for the number of verses in the plan",
+				"userDefined": false
+			}
+		],
+		"isTemplate": false,
+		"count": 0,
+		"lang": "en"
+	},
+	{
+		"id": "c56cdc1c-7965-4fb2-bab3-5687f10981ca",
+		"data": [
+			{
+				"text": "for the number of verses",
+				"userDefined": false
+			}
+		],
+		"isTemplate": false,
+		"count": 0,
+		"lang": "en"
+	},
+	{
+		"id": "ce02fae7-c44f-48f3-9cc7-4e073e4ab016",
+		"data": [
+			{
+				"text": "How many verses are in the memory plan",
+				"userDefined": false
+			}
+		],
+		"isTemplate": false,
+		"count": 0,
+		"lang": "en"
+	},
+	{
+		"id": "a73259f3-d64a-4264-b156-e5ae331f6e3a",
+		"data": [
+			{
+				"text": "How many verses are in my memorization plan",
+				"userDefined": false
+			}
+		],
+		"isTemplate": false,
+		"count": 0,
+		"lang": "en"
+	}
+]

@@ -1,6 +1,6 @@
 {
-	"id": "7a03b29c-82d9-4a49-b7de-e3155252ec5d",
-	"name": "MemorizeVerseIntent",
+	"id": "d6aa11bd-23e7-4e9d-97de-30e171d17989",
+	"name": "RemoveVerseFromPlanIntent",
 	"auto": true,
 	"webhookUsed": true,
 	"responses": [

@@ -10,8 +10,11 @@ module.exports = {
   },
 
   db: {
-    FileDb: {
-      pathToFile: '../db/db.json',
-    },
+//    FileDb: {
+//      pathToFile: '../db/db.json',
+//    },
+    DynamoDb: {
+      tableName: 'bibleTrainer',
+    }
   },
 };

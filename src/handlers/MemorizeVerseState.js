@@ -71,7 +71,18 @@ module.exports = {
     Unhandled() {
       // this may trigger when the user took too long
       console.log(`In Unhandled handler of the MemorizeVerseState`);
+      if (this.$inputs.$data != null) {
+        console.log(`The last thing the user said was: ${this.$inputs.$data.passage.value}`);
+      }
+      this.$speech.addText(`Sorry, I didn't catch that.  Please try saying the verse again.  Don't forget to start by saying, the verse is.`);
+      this.$reprompt.addText(`Please try saying the verse again.  Remember to start by saying, the verse is.`);
+
+      this.ask(this.$speech, this.$reprompt);
+
     },
+    HelpIntent() {
+      return this.toGlobalIntent('HelpIntent');
+    }
 
   },
 
@@ -84,6 +95,12 @@ module.exports = {
         .addText(Messages.prosodyRate90Msg)
         .addText(`${this.$session.$data.currentPassage}`)
         .addText(Messages.endProsodyMsg)
+        .addText(`Ok, give it a try.  Remember to start by saying, the verse is.`)
+
+      this.$reprompt.addText(`Ok, give it a try. Remember to start by saying, the verse is.`)
+
+      this.ask(this.$speech);
+      
       // 
     },
     NoIntent() {

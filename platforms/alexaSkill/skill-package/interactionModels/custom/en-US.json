@@ -1,10 +1,385 @@
 {
 	"interactionModel": {
 		"languageModel": {
-			"invocationName": "my bible memorization app",
+			"invocationName": "bible trainer",
+			"intents": [
+				{
+					"name": "YesIntent",
+					"slots": [],
+					"samples": [
+						"yes please",
+						"yup",
+						"yeah",
+						"yes"
+					]
+				},
+				{
+					"name": "NoIntent",
+					"slots": [],
+					"samples": [
+						"no thank you",
+						"no thank",
+						"nope",
+						"no"
+					]
+				},
+				{
+					"name": "GetRatingIntent",
+					"slots": [
+						{
+							"name": "rating",
+							"type": "AMAZON.NUMBER"
+						}
+					],
+					"samples": [
+						"{rating}"
+					]
+				},
+				{
+					"name": "HowManyVersesIntent",
+					"slots": [],
+					"samples": [
+						"How many verses are in my plan",
+						"for the number of verses in my plan",
+						"for the number of verses in the plan",
+						"for the number of verses",
+						"How many verses are in the memory plan",
+						"How many verses are in my memorization plan"
+					]
+				},
+				{
+					"name": "WhichVersesInPlanIntent",
+					"slots": [],
+					"samples": [
+						"which verses are in my plan",
+						"what verses are in my plan",
+						"which verses are in the plan",
+						"what verses are in the plan",
+						"which verses are in the memorization plan",
+						"what verses are in the memorization plan",
+						"which verses are in my memorization plan",
+						"what verses are in my memorization plan",
+						"which verses are in the memory plan",
+						"what verses are in the memory plan",
+						"which verses are in my memory plan",
+						"what verses are in my memory plan",
+						"for the verses in the plan",
+						"for the verses in my plan",
+						"for all the verses in my plan",
+						"for all the verses in the plan",
+						"for my plan",
+						"for my memorization plan",
+						"for my memory plan"
+					]
+				},
+				{
+					"name": "AddVerseToPlanIntent",
+					"slots": [
+						{
+							"name": "book",
+							"type": "BooksOfTheBibleType",
+							"samples": [
+								"The book is {book}",
+								"It is in {book}",
+								"{book}"
+							]
+						},
+						{
+							"name": "chapter",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"chapter {chapter}",
+								"Read chapter {chapter}",
+								"I want chapter {chapter}",
+								"Read {chapter}",
+								"{chapter}"
+							]
+						},
+						{
+							"name": "verse",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"I want verse {verse}",
+								"verse {verse}",
+								"{verse}"
+							]
+						}
+					],
+					"samples": [
+						"add to my plan",
+						"add a verse for my plan",
+						"add {book} {chapter} {verse} to the plan",
+						"add a verse to the list",
+						"add {book} {chapter} {verse} to my list",
+						"add a verse to my list",
+						"add a verse to my plan",
+						"add the passage {book} {chapter} {verse} to my plan",
+						"add the verse {book} {chapter} {verse} to my plan",
+						"add {book} {chapter} {verse} to my plan"
+					]
+				},
+				{
+					"name": "RemoveVerseFromPlanIntent",
+					"slots": [
+						{
+							"name": "book",
+							"type": "BooksOfTheBibleType",
+							"samples": [
+								"The book is {book}",
+								"It is in {book}",
+								"{book}"
+							]
+						},
+						{
+							"name": "chapter",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"chapter {chapter}",
+								"Read chapter {chapter}",
+								"I want chapter {chapter}",
+								"Read {chapter}",
+								"{chapter}"
+							]
+						},
+						{
+							"name": "verse",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"I want verse {verse}",
+								"verse {verse}",
+								"{verse}"
+							]
+						}
+					],
+					"samples": [
+						"remove a verse from the plan",
+						"remove a verse from my plan",
+						"delete {book} {chapter} {verse} from the plan",
+						"delete {book} chapter {chapter} verse {verse} from my plan",
+						"delete {book} chapter {chapter} verse {verse} from the plan",
+						"delete {book} chapter {chapter} verse {verse}",
+						"delete a verse from my plan",
+						"delete a verse from the plan",
+						"delete a verse",
+						"delete {book} {chapter} {verse} from my plan",
+						"remove {book} {chapter} {verse} from my plan"
+					]
+				},
+				{
+					"name": "ReadVersesWithPausesIntent",
+					"slots": [
+						{
+							"name": "book",
+							"type": "BooksOfTheBibleType",
+							"samples": [
+								"The book is {book}",
+								"It is in {book}",
+								"{book}"
+							]
+						},
+						{
+							"name": "chapter",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"chapter {chapter}",
+								"Read chapter {chapter}",
+								"I want chapter {chapter}",
+								"Read {chapter}",
+								"{chapter}"
+							]
+						},
+						{
+							"name": "verse",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"I want verse {verse}",
+								"verse {verse}",
+								"{verse}"
+							]
+						}
+					],
+					"samples": [
+						"help me memorize {book} {chapter} {verse}",
+						"help me memorize {book} chapter {chapter} verse {verse}"
+					]
+				},
+				{
+					"name": "GetOptionsIntent",
+					"slots": [],
+					"samples": [
+						"Get options",
+						"List options",
+						"List the options",
+						"Get the options",
+						"Tell me the options"
+					]
+				},
+				{
+					"name": "GetRandomVerseIntent",
+					"slots": [],
+					"samples": [
+						"Get a random verse",
+						"Get a random verse from my list",
+						"Read me a random verse from my list",
+						"Read me a verse from my list"
+					]
+				},
+				{
+					"name": "PromptToMemorizeVerseIntent",
+					"slots": [],
+					"samples": [
+						"Memorize a verse",
+						"I want to memorize a verse",
+						"I'd like to memorize a verse"
+					]
+				},
+				{
+					"name": "ListenToUserReciteTheVerseIntent",
+					"slots": [
+						{
+							"name": "passage",
+							"type": "AMAZON.SearchQuery"
+						}
+					],
+					"samples": [
+						"The verse is {passage}"
+					]
+				},
+				{
+					"name": "MemorizeVerseIntent",
+					"slots": [
+						{
+							"name": "book",
+							"type": "BooksOfTheBibleType",
+							"samples": [
+								"The book is {book}",
+								"It is in {book}",
+								"{book}"
+							]
+						},
+						{
+							"name": "chapter",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"chapter {chapter}",
+								"Read chapter {chapter}",
+								"I want chapter {chapter}",
+								"Read {chapter}",
+								"{chapter}"
+							]
+						},
+						{
+							"name": "verse",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"I want verse {verse}",
+								"verse {verse}",
+								"{verse}"
+							]
+						}
+					],
+					"samples": [
+						"Memorize {book} {chapter} verse {verse}",
+						"Memorize {book} chapter {chapter} verse {verse}",
+						"Memorize {book} {chapter} verse {verse}",
+						"I want to memorize {book} {chapter} verse {verse}",
+						"I want to memorize {book} chapter {chapter} verse {verse}",
+						"I want to memorize {book} {chapter} verse {verse}",
+						"Will you please help me memorize {book} {chapter} verse {verse}",
+						"Will you please help me to memorize {book} {chapter} verse {verse}"
+					]
+				},
+				{
+					"name": "ReadSpecificVerseIntent",
+					"slots": [
+						{
+							"name": "book",
+							"type": "BooksOfTheBibleType",
+							"samples": [
+								"The book is {book}",
+								"It is in {book}",
+								"{book}"
+							]
+						},
+						{
+							"name": "chapter",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"chapter {chapter}",
+								"Read chapter {chapter}",
+								"I want chapter {chapter}",
+								"Read {chapter}",
+								"{chapter}"
+							]
+						},
+						{
+							"name": "verse",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"I want verse {verse}",
+								"verse {verse}",
+								"{verse}"
+							]
+						}
+					],
+					"samples": [
+						"{book} {chapter} {verse}",
+						"Read {book} chapter {chapter} verse {verse}",
+						"Read {book} {chapter} verse {verse}",
+						"Read me {book} chapter {chapter} verse {verse}",
+						"Read me {book} {chapter} verse {verse}",
+						"Will you please read me {book} {chapter} verse {verse}",
+						"Please read {book} {chapter} verse {verse}"
+					]
+				},
+				{
+					"name": "AMAZON.CancelIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.HelpIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.StopIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.NextIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.PreviousIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.PauseIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.ResumeIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.NavigateHomeIntent",
+					"samples": []
+				},
+				{
+					"name": "ReadVerseIntent",
+					"slots": [],
+					"samples": [
+						"Listen to a verse",
+						"Please read a verse",
+						"I would like to listen to a verse",
+						"Read a verse from the Bible",
+						"Look up a verse",
+						"I would like to hear a verse",
+						"Read a verse"
+					]
+				}
+			],
 			"types": [
 				{
-					"name": "BooksOfTheBibleType",
 					"values": [
 						{
 							"id": "PE",
@@ -498,212 +873,15 @@
 								"value": "genesis"
 							}
 						}
-					]
-				}
-			],
-			"intents": [
-				{
-					"name": "YesIntent",
-					"samples": [
-						"yes please",
-						"yup",
-						"yeah",
-						"yes"
-					]
-				},
-				{
-					"name": "NoIntent",
-					"samples": [
-						"no thank you",
-						"no thank",
-						"nope",
-						"no"
-					]
-				},
-				{
-					"name": "GetOptionsIntent",
-					"samples": [
-						"Get options",
-						"List options",
-						"List the options",
-						"Get the options",
-						"Tell me the options"
-					]
-				},
-				{
-					"name": "GetVerseIntent",
-					"samples": [
-						"Get the next verse",
-						"Read me the next verse"
-					]
-				},
-				{
-					"name": "PromptToMemorizeVerseIntent",
-					"samples": [
-						"Memorize a verse",
-						"I want to memorize a verse",
-						"I'd like to memorize a verse"
-					]
-				},
-				{
-					"name": "ListenToUserReciteTheVerseIntent",
-					"samples": [
-						"The verse is {passage}"
 					],
-					"slots": [
-						{
-							"name": "passage",
-							"type": "AMAZON.SearchQuery"
-						}
-					]
-				},
-				{
-					"name": "MemorizeVerseIntent",
-					"samples": [
-						"{book} {chapter} {verse}",
-						"Help me memorize {book} chapter {chapter} verse {verse}",
-						"Memorize {book} {chapter} verse {verse}",
-						"Memorize {book} chapter {chapter} verse {verse}",
-						"Memorize {book} {chapter} verse {verse}",
-						"I want to memorize {book} {chapter} verse {verse}",
-						"I want to memorize {book} chapter {chapter} verse {verse}",
-						"I want to memorize {book} {chapter} verse {verse}",
-						"Will you please help me memorize {book} {chapter} verse {verse}",
-						"Will you please help me to memorize {book} {chapter} verse {verse}",
-						"Please help me memorize {book} {chapter} verse {verse}",
-						"Please help me to memorize {book} {chapter} verse {verse}"
-					],
-					"slots": [
-						{
-							"name": "book",
-							"type": "BooksOfTheBibleType",
-							"samples": [
-								"The book is {book}",
-								"It is in {book}",
-								"{book}"
-							]
-						},
-						{
-							"name": "chapter",
-							"type": "AMAZON.NUMBER",
-							"samples": [
-								"chapter {chapter}",
-								"Read chapter {chapter}",
-								"I want chapter {chapter}",
-								"Read {chapter}",
-								"{chapter}"
-							]
-						},
-						{
-							"name": "verse",
-							"type": "AMAZON.NUMBER",
-							"samples": [
-								"I want verse {verse}",
-								"verse {verse}",
-								"{verse}"
-							]
-						}
-					]
-				},
-				{
-					"name": "ReadVerseIntent",
-					"samples": [
-						"Read {book} chapter {chapter} verse {verse}",
-						"Read {book} {chapter} verse {verse}",
-						"Read me {book} chapter {chapter} verse {verse}",
-						"Read me {book} {chapter} verse {verse}",
-						"Will you please read me {book} {chapter} verse {verse}",
-						"Please read {book} {chapter} verse {verse}",
-						"Read a verse"
-					],
-					"slots": [
-						{
-							"name": "book",
-							"type": "BooksOfTheBibleType",
-							"samples": [
-								"The book is {book}",
-								"It is in {book}",
-								"{book}"
-							]
-						},
-						{
-							"name": "chapter",
-							"type": "AMAZON.NUMBER",
-							"samples": [
-								"chapter {chapter}",
-								"Read chapter {chapter}",
-								"I want chapter {chapter}",
-								"Read {chapter}",
-								"{chapter}"
-							]
-						},
-						{
-							"name": "verse",
-							"type": "AMAZON.NUMBER",
-							"samples": [
-								"I want verse {verse}",
-								"verse {verse}",
-								"{verse}"
-							]
-						}
-					]
-				},
-				{
-					"name": "AMAZON.CancelIntent",
-					"samples": []
-				},
-				{
-					"name": "AMAZON.HelpIntent",
-					"samples": []
-				},
-				{
-					"name": "AMAZON.StopIntent",
-					"samples": []
+					"name": "BooksOfTheBibleType"
 				}
 			]
 		},
-		"prompts": [
-			{
-				"id": "Slot.Validation.587586657820.833947472197.828571793071",
-				"variations": [
-					{
-						"type": "PlainText",
-						"value": "I don't recognize that book.  Please try again."
-					}
-				]
-			},
-			{
-				"id": "Elicit.Slot.587586657820.833947472197",
-				"variations": [
-					{
-						"type": "PlainText",
-						"value": "I didn't catch which book you wanted.  Will you please repeat it?"
-					}
-				]
-			},
-			{
-				"id": "Elicit.Slot.1449555058286.312557981914",
-				"variations": [
-					{
-						"type": "PlainText",
-						"value": "What chapter do you want?"
-					}
-				]
-			},
-			{
-				"id": "Elicit.Slot.1449555058286.754795822058",
-				"variations": [
-					{
-						"type": "PlainText",
-						"value": "What verse do you want?"
-					}
-				]
-			}
-		],
 		"dialog": {
 			"intents": [
 				{
-					"name": "ReadVerseIntent",
+					"name": "ReadSpecificVerseIntent",
 					"confirmationRequired": false,
 					"prompts": {},
 					"slots": [
@@ -736,8 +914,190 @@
 						}
 					],
 					"delegationStrategy": "ALWAYS"
+				},
+				{
+					"name": "AddVerseToPlanIntent",
+					"confirmationRequired": false,
+					"prompts": {},
+					"slots": [
+						{
+							"name": "book",
+							"type": "BooksOfTheBibleType",
+							"elicitationRequired": true,
+							"confirmationRequired": false,
+							"prompts": {
+								"elicitation": "Elicit.Slot.998388583326.1549033548241"
+							}
+						},
+						{
+							"name": "chapter",
+							"type": "AMAZON.NUMBER",
+							"elicitationRequired": true,
+							"confirmationRequired": false,
+							"prompts": {
+								"elicitation": "Elicit.Slot.998388583326.815592070516"
+							}
+						},
+						{
+							"name": "verse",
+							"type": "AMAZON.NUMBER",
+							"elicitationRequired": true,
+							"confirmationRequired": false,
+							"prompts": {
+								"elicitation": "Elicit.Slot.998388583326.828213585404"
+							}
+						}
+					]
+				},
+				{
+					"name": "RemoveVerseFromPlanIntent",
+					"confirmationRequired": false,
+					"prompts": {},
+					"slots": [
+						{
+							"name": "book",
+							"type": "BooksOfTheBibleType",
+							"elicitationRequired": true,
+							"confirmationRequired": false,
+							"prompts": {
+								"elicitation": "Elicit.Slot.867358855970.424913054496"
+							}
+						},
+						{
+							"name": "chapter",
+							"type": "AMAZON.NUMBER",
+							"elicitationRequired": true,
+							"confirmationRequired": false,
+							"prompts": {
+								"elicitation": "Elicit.Slot.867358855970.664934923876"
+							}
+						},
+						{
+							"name": "verse",
+							"type": "AMAZON.NUMBER",
+							"elicitationRequired": true,
+							"confirmationRequired": false,
+							"prompts": {
+								"elicitation": "Elicit.Slot.867358855970.846594688870"
+							}
+						}
+					]
 				}
-			]
-		}
-	}
+			],
+			"delegationStrategy": "ALWAYS"
+		},
+		"prompts": [
+			{
+				"id": "Slot.Validation.587586657820.833947472197.828571793071",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "I don't recognize that book.  Please try again."
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.587586657820.833947472197",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Which book?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.1449555058286.312557981914",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "What chapter do you want?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.1449555058286.754795822058",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "What verse do you want?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.998388583326.1549033548241",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "What book of the Bible?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.998388583326.815592070516",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Which chapter?"
+					},
+					{
+						"type": "PlainText",
+						"value": "What chapter?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.998388583326.828213585404",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "What verse?"
+					},
+					{
+						"type": "PlainText",
+						"value": "Which verse?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.867358855970.424913054496",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "what book?"
+					},
+					{
+						"type": "PlainText",
+						"value": "which book?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.867358855970.664934923876",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "which chapter?"
+					},
+					{
+						"type": "PlainText",
+						"value": "what chapter?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.867358855970.846594688870",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "which verse?"
+					},
+					{
+						"type": "PlainText",
+						"value": "what verse?"
+					}
+				]
+			}
+		]
+	},
+	"version": "30"
 }

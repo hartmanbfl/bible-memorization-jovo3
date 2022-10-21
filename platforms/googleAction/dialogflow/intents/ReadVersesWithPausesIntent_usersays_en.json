@@ -1,0 +1,78 @@
+[
+	{
+		"id": "928f3ae9-b139-4301-9238-c8fc2de786d3",
+		"data": [
+			{
+				"text": "help me memorize ",
+				"userDefined": false
+			},
+			{
+				"text": "book",
+				"userDefined": true,
+				"alias": "book",
+				"meta": "@BooksOfTheBibleType"
+			},
+			{
+				"text": " ",
+				"userDefined": false
+			},
+			{
+				"text": "chapter",
+				"userDefined": true,
+				"alias": "chapter",
+				"meta": "@sys.number"
+			},
+			{
+				"text": " ",
+				"userDefined": false
+			},
+			{
+				"text": "verse",
+				"userDefined": true,
+				"alias": "verse",
+				"meta": "@sys.number"
+			}
+		],
+		"isTemplate": false,
+		"count": 0,
+		"lang": "en"
+	},
+	{
+		"id": "3109f0c5-c611-4793-8e70-bd8506431231",
+		"data": [
+			{
+				"text": "help me memorize ",
+				"userDefined": false
+			},
+			{
+				"text": "book",
+				"userDefined": true,
+				"alias": "book",
+				"meta": "@BooksOfTheBibleType"
+			},
+			{
+				"text": " chapter ",
+				"userDefined": false
+			},
+			{
+				"text": "chapter",
+				"userDefined": true,
+				"alias": "chapter",
+				"meta": "@sys.number"
+			},
+			{
+				"text": " verse ",
+				"userDefined": false
+			},
+			{
+				"text": "verse",
+				"userDefined": true,
+				"alias": "verse",
+				"meta": "@sys.number"
+			}
+		],
+		"isTemplate": false,
+		"count": 0,
+		"lang": "en"
+	}
+]
