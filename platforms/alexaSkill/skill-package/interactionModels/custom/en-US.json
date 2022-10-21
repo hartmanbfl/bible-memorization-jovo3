@@ -51,6 +51,11 @@
 					"name": "WhichVersesInPlanIntent",
 					"slots": [],
 					"samples": [
+						"which verses are on my list",
+						"what verses are on my list",
+						"what's in my plan",
+						"review memory plan",
+						"review my memory plan",
 						"which verses are in my plan",
 						"what verses are in my plan",
 						"which verses are in the plan",
@@ -199,6 +204,9 @@
 						}
 					],
 					"samples": [
+						"memorize {book} {chapter} verse {verse}",
+						"memorize {book} chapter {chapter} verse {verse}",
+						"memorize {book} {chapter} {verse}",
 						"help me memorize {book} {chapter} {verse}",
 						"help me memorize {book} chapter {chapter} verse {verse}"
 					]
@@ -215,25 +223,6 @@
 					]
 				},
 				{
-					"name": "GetRandomVerseIntent",
-					"slots": [],
-					"samples": [
-						"Get a random verse",
-						"Get a random verse from my list",
-						"Read me a random verse from my list",
-						"Read me a verse from my list"
-					]
-				},
-				{
-					"name": "PromptToMemorizeVerseIntent",
-					"slots": [],
-					"samples": [
-						"Memorize a verse",
-						"I want to memorize a verse",
-						"I'd like to memorize a verse"
-					]
-				},
-				{
 					"name": "ListenToUserReciteTheVerseIntent",
 					"slots": [
 						{
@@ -246,7 +235,7 @@
 					]
 				},
 				{
-					"name": "MemorizeVerseIntent",
+					"name": "PracticeSayingVerseIntent",
 					"slots": [
 						{
 							"name": "book",
@@ -279,14 +268,9 @@
 						}
 					],
 					"samples": [
-						"Memorize {book} {chapter} verse {verse}",
-						"Memorize {book} chapter {chapter} verse {verse}",
-						"Memorize {book} {chapter} verse {verse}",
-						"I want to memorize {book} {chapter} verse {verse}",
-						"I want to memorize {book} chapter {chapter} verse {verse}",
-						"I want to memorize {book} {chapter} verse {verse}",
-						"Will you please help me memorize {book} {chapter} verse {verse}",
-						"Will you please help me to memorize {book} {chapter} verse {verse}"
+						"practice saying {book} chapter {chapter} verse {verse}",
+						"practice saying {book} {chapter} {verse}",
+						"Practice saying a verse"
 					]
 				},
 				{
@@ -323,7 +307,9 @@
 						}
 					],
 					"samples": [
-						"{book} {chapter} {verse}",
+						"I want to listen to {book} chapter {chapter} verse {verse}",
+						"I want to listen to {book} {chapter} verse {verse}",
+						"I want to listen to {book} {chapter} {verse}",
 						"Read {book} chapter {chapter} verse {verse}",
 						"Read {book} {chapter} verse {verse}",
 						"Read me {book} chapter {chapter} verse {verse}",
@@ -375,6 +361,68 @@
 						"Look up a verse",
 						"I would like to hear a verse",
 						"Read a verse"
+					]
+				},
+				{
+					"name": "PracticeAVerseIntent",
+					"slots": [],
+					"samples": [
+						"practice",
+						"do a verse from my memory plan",
+						"lets practice a verse from the memory list",
+						"practice a verse from the memorization list",
+						"practice a verse from the memory list",
+						"practice mode",
+						"practice a verse from the memory plan",
+						"practice a verse from my memory plan",
+						"Practice a verse"
+					]
+				},
+				{
+					"name": "MemorizeAVerseIntent",
+					"slots": [],
+					"samples": [
+						"learn a verse",
+						"help me to learn a verse",
+						"help me learn a verse",
+						"help me to memorize a verse",
+						"help me memorize a verse",
+						"Memorize a verse"
+					]
+				},
+				{
+					"name": "GetBookChapterVerseIntent",
+					"slots": [
+						{
+							"name": "book",
+							"type": "BooksOfTheBibleType",
+							"samples": [
+								"the book is {book}",
+								"it is {book}",
+								"{book}"
+							]
+						},
+						{
+							"name": "chapter",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"chapter {chapter}",
+								"{chapter}"
+							]
+						},
+						{
+							"name": "verse",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"verse {verse}",
+								"{verse}"
+							]
+						}
+					],
+					"samples": [
+						"{book} {chapter} verse {verse}",
+						"{book} chapter {chapter} verse {verse}",
+						"{book} {chapter} {verse}"
 					]
 				}
 			],
@@ -912,8 +960,7 @@
 								"elicitation": "Elicit.Slot.1449555058286.754795822058"
 							}
 						}
-					],
-					"delegationStrategy": "ALWAYS"
+					]
 				},
 				{
 					"name": "AddVerseToPlanIntent",
@@ -979,6 +1026,74 @@
 							"confirmationRequired": false,
 							"prompts": {
 								"elicitation": "Elicit.Slot.867358855970.846594688870"
+							}
+						}
+					]
+				},
+				{
+					"name": "ReadVersesWithPausesIntent",
+					"confirmationRequired": false,
+					"prompts": {},
+					"slots": [
+						{
+							"name": "book",
+							"type": "BooksOfTheBibleType",
+							"elicitationRequired": true,
+							"confirmationRequired": false,
+							"prompts": {
+								"elicitation": "Elicit.Slot.842805476157.236458585134"
+							}
+						},
+						{
+							"name": "chapter",
+							"type": "AMAZON.NUMBER",
+							"elicitationRequired": true,
+							"confirmationRequired": false,
+							"prompts": {
+								"elicitation": "Elicit.Slot.842805476157.11093525019"
+							}
+						},
+						{
+							"name": "verse",
+							"type": "AMAZON.NUMBER",
+							"elicitationRequired": true,
+							"confirmationRequired": false,
+							"prompts": {
+								"elicitation": "Elicit.Slot.842805476157.1093148667483"
+							}
+						}
+					]
+				},
+				{
+					"name": "GetBookChapterVerseIntent",
+					"confirmationRequired": false,
+					"prompts": {},
+					"slots": [
+						{
+							"name": "book",
+							"type": "BooksOfTheBibleType",
+							"elicitationRequired": true,
+							"confirmationRequired": false,
+							"prompts": {
+								"elicitation": "Elicit.Slot.1451039687934.204033643600"
+							}
+						},
+						{
+							"name": "chapter",
+							"type": "AMAZON.NUMBER",
+							"elicitationRequired": true,
+							"confirmationRequired": false,
+							"prompts": {
+								"elicitation": "Elicit.Slot.1451039687934.130556456033"
+							}
+						},
+						{
+							"name": "verse",
+							"type": "AMAZON.NUMBER",
+							"elicitationRequired": true,
+							"confirmationRequired": false,
+							"prompts": {
+								"elicitation": "Elicit.Slot.1451039687934.1082766791042"
 							}
 						}
 					]
@@ -1096,8 +1211,86 @@
 						"value": "what verse?"
 					}
 				]
+			},
+			{
+				"id": "Elicit.Slot.842805476157.236458585134",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Which book?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.842805476157.11093525019",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Which chapter?"
+					},
+					{
+						"type": "PlainText",
+						"value": "What chapter?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.842805476157.1093148667483",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Which verse?"
+					},
+					{
+						"type": "PlainText",
+						"value": "What verse?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.1451039687934.204033643600",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Which book of the Bible?"
+					},
+					{
+						"type": "PlainText",
+						"value": "What book?"
+					},
+					{
+						"type": "PlainText",
+						"value": "Which book?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.1451039687934.130556456033",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "what chapter?"
+					},
+					{
+						"type": "PlainText",
+						"value": "Which chapter?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.1451039687934.1082766791042",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "What verse?"
+					},
+					{
+						"type": "PlainText",
+						"value": "Which verse?"
+					}
+				]
 			}
 		]
 	},
-	"version": "30"
+	"version": "44"
 }

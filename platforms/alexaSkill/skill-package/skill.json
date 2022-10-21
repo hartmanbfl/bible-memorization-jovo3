@@ -20,13 +20,13 @@
 			"isExportCompliant": true,
 			"locales": {
 				"en-US": {
-					"privacyPolicyUrl": "http://example.com/policy",
+					"privacyPolicyUrl": "https://gemedot.com/privacy-policy/",
 					"termsOfUseUrl": ""
 				}
 			},
 			"shoppingKit": {
-				"isShoppingActionsEnabled": false,
-				"isAmazonAssociatesOnAlexaEnabled": false
+				"isAmazonAssociatesOnAlexaEnabled": false,
+				"isShoppingActionsEnabled": false
 			},
 			"usesPersonalInfo": false
 		},
@@ -49,9 +49,9 @@
 						"Bible",
 						"memorization"
 					],
-					"largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/367f/a525a650881844e2b62e3bc514c41f52/APP_ICON_LARGE?versionId=4mfyMQsKfmT_IXy1_WAEv6_9STWBkUtj&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221019T102747Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QGAVVTZ74%2F20221019%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=52dfafead0cecf6990a3f63a3cb9179b38a879fe6493d7773f180750f726f6f1",
+					"largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/367f/a525a650881844e2b62e3bc514c41f52/APP_ICON_LARGE?versionId=4mfyMQsKfmT_IXy1_WAEv6_9STWBkUtj&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221021T105400Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QGAVVTZ74%2F20221021%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=1b88f9c6832de4eb98fee28417ab95497f7a8c3806b95b04fa528eeb6da689a2",
 					"name": "Bible Trainer",
-					"smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/76b6/246d806d88a44ab2abce311e4c970722/APP_ICON?versionId=x6WgVmbyASgqmWFdtfFs4QFbiR34WUNa&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221019T102747Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QGAVVTZ74%2F20221019%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=6486d573cbdc91f070b60ff50e5aeaddc315c1f2876c5aa90607dee33882ca2b",
+					"smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/76b6/246d806d88a44ab2abce311e4c970722/APP_ICON?versionId=x6WgVmbyASgqmWFdtfFs4QFbiR34WUNa&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221021T105400Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QGAVVTZ74%2F20221021%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=28b228c271a8541320b7d66282eec604c8b9c450b3f4728e26f7e897334a210c",
 					"summary": "This skill helps users to memorize Bible verses"
 				}
 			},
