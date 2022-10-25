@@ -126,6 +126,38 @@ class EsvApiClass {
     });
   }
 
+  // Make sure this verse exists in the Bible
+  // Note that the ESV API does not give back an error, but rather gives the 
+  // nearest verse to the request
+  async validateVerse(book, chapter, verse) {
+    return new Promise(async (resolve, reject) => {
+      let verseRequest = (`${book}${chapter}:${verse}`).toString(); 
+      console.log("Calling ESV API with query: " + verseRequest);
+
+      let paramList = "";
+      for (const [key, value] of esvParams.entries()) {
+        paramList = paramList + "&" + key + "=" + value;
+      }
+
+      let readVerseUrl = `${esv_http}/passage/text/?q=${verseRequest}${paramList}`;
+      let theVerseJson = await this.fetchFromESV(readVerseUrl);
+      let theQuery = (theVerseJson.query).toString();
+
+      // check if theQuery === the requested verse
+      let spaceSplit = theQuery.split(" ");  // this will give book and chapter:verse
+      let queryBook = spaceSplit[0];
+      let queryChapterVerseSplit = spaceSplit[1].split(":");
+      let queryChapter = queryChapterVerseSplit[0];
+      let queryVerse = queryChapterVerseSplit[1];
+      console.log(`Validating [${book} ${chapter}:${verse}], Query Result: [${queryBook} ${queryChapter}:${queryVerse}]`);
+      if (chapter === queryChapter && verse === queryVerse) {
+        resolve(true);
+      } else {
+        resolve(false);
+      }
+    })  
+  }
+
   async findNumberOfVersesWithWordInBible(keyword, exactSearch = true) {
     if (exactSearch)
       var searchVerseUrl = `${esv_http}/passage/search?q="${keyword}"&page-size=100`

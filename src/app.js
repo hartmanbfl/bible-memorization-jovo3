@@ -7,6 +7,9 @@ const { FileDb } = require('jovo-db-filedb');
 const { DynamoDb } = require('jovo-db-dynamodb');
 
 const Messages = require('./helpers/Messages');
+const EsvApiClass = require('./services/EsvApiClass');
+
+const esvApiClass = new EsvApiClass();
 
 console.log('This template uses an outdated version of the Jovo Framework. We strongly recommend upgrading to Jovo v4. Learn more here: https://www.jovo.tech/docs/migration-from-v3');
 
@@ -98,14 +101,40 @@ app.setHandler(
     },
 
     // Add or remove verses from the memory plan
-    AddVerseToPlanIntent() {
+    async AddVerseToPlanIntent() {
       const book = this.$inputs.book.value.toLowerCase();
       const chapter = this.$inputs.chapter.value;
       const verse = this.$inputs.verse.value;
 
+      // Make sure this is a valid verse
+      const isValid = await esvApiClass.validateVerse(book, chapter, verse);
+      if (!isValid) {
+        this.$speech.addText(`${book} chapter ${chapter} verse ${verse} does not exist in the Bible,`)
+          .addText(`so I will not add it to the list.`)
+          .addText(Messages.one_sec_pause)
+          .addText(`What would you like to do now?`)
+
+        this.$reprompt.addText(`What would you like to do now?`)
+        return this.followUpState('GetActivityState').ask(this.$speech, this.$reprompt);
+      }
+
       // check if verse is already on the plan
       const verseListStr = this.$user.$data.verseList;
       const verseListObj = JSON.parse(verseListStr);
+
+      // Limit number of verses on the plan to 25
+      if (verseListObj.length >= 25) {
+        this.$speech.addText(`The maximum number of verses that can be stored at this time is 25.`)
+          .addText(`Please remove verses from the list in order to add new ones.`)
+          .addText(`To review the verses currently on your list just say, review my plan.`)
+          .addText(`To delete a verse just say, Remove a verse from my plan.`)
+          .addText(Messages.one_sec_pause)
+          .addText(`What would you like to do now?`)
+
+        this.$reprompt.addText(`What would you like to do now?`)
+        return this.followUpState('GetActivityState').ask(this.$speech, this.$reprompt);
+      }
+      
       let idxToAdd = -1;
       for (let i = 0; i < verseListObj.length; i++) {
         if (verseListObj[i].book === book && verseListObj[i].chapter === chapter
@@ -128,7 +157,8 @@ app.setHandler(
         verseListObj.push(newObj);
         console.log(`List after adding: ${JSON.stringify(verseListObj, null, 2)}`);
         this.$user.$data.verseList = JSON.stringify(verseListObj);
-        this.$speech.addText(`${book} ${chapter} verse ${verse} was added to your list.`);
+        this.$speech.addText(`${book} ${chapter} verse ${verse} was added to your list.`)
+          .addText(`You now have ${verseListObj.length} verses on your memory plan.`)
       }
       if (this.$session.$data.keepSessionOpen) {
         this.$speech.addText(`What would you like to do now?`);
@@ -165,7 +195,8 @@ app.setHandler(
       if (idxToRemove > -1) {
         verseListObj.splice(idxToRemove, 1);
         this.$user.$data.verseList = JSON.stringify(verseListObj);
-        this.$speech.addText(`${book} ${chapter} verse ${verse} was removed from your list.`);
+        this.$speech.addText(`${book} ${chapter} verse ${verse} was removed from your list.`)
+         .addText(`You now have ${verseListObj.length} verses on your memory plan.`);
       } else {
         this.$speech.addText(`I couldn't find this verse on your list.`);
       }
@@ -204,6 +235,14 @@ app.setHandler(
 
     HowManyVersesIntent() {
       return this.toStateIntent('MemoryPlanState', 'HowManyVersesIntent');
+    },
+
+    // Read a verse from ESV audio player
+    ReadVerseIntent() {
+      return this.toStateIntent('GetActivityState', 'ReadVerseIntent');
+    },
+    ReadSpecificVerseIntent() {
+      return this.toStateIntent('GetActivityState', 'ReadSpecificVerseIntent');
     },
 
     // Global Intent to get book, chapter and verse
@@ -251,9 +290,20 @@ async function initializeSkill() {
   console.log(`In global state, initializeSkill()`);
 
   // init DB if verse list is empty
-  if (this.$user.$data.verseList === null) {
+  console.log(`VerseList: ${this.$user.$data.verseList}`);
+  if (typeof (this.$user.$data.verseList) === 'undefined') {
+    console.log(`Creating verselist for the user.`);
 
-    this.$user.$data.verseList = `[]`;
+    // Init with one verse
+    let verseList = [];
+    let initVerse = {
+      "book":"john",
+      "chapter": 3,
+      "startVerse": 16,
+      "endVerse": 16
+    }
+    verseList.push(initVerse);
+    this.$user.$data.verseList = JSON.stringify(verseList); 
   }
 }
 

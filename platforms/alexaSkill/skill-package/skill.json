@@ -9,7 +9,24 @@
 					{
 						"type": "AUDIO_PLAYER"
 					}
-				]
+				],
+				"regions": {
+					"NA": {
+						"endpoint": {
+							"uri": "arn:aws:lambda:eu-central-1:376606010111:function:bibleTrainer"
+						}
+					},
+					"EU": {
+						"endpoint": {
+							"uri": "arn:aws:lambda:eu-central-1:376606010111:function:bibleTrainer"
+						}
+					},
+					"FE": {
+						"endpoint": {
+							"uri": "arn:aws:lambda:eu-central-1:376606010111:function:bibleTrainer"
+						}
+					}
+				}
 			}
 		},
 		"manifestVersion": "1.0",
@@ -22,6 +39,10 @@
 				"en-US": {
 					"privacyPolicyUrl": "https://gemedot.com/privacy-policy/",
 					"termsOfUseUrl": ""
+				},
+				"en-GB": {
+					"privacyPolicyUrl": "https://gemedot.com/privacy-policy/",
+					"termsOfUseUrl": ""
 				}
 			},
 			"shoppingKit": {
@@ -31,31 +52,58 @@
 			"usesPersonalInfo": false
 		},
 		"publishingInformation": {
+			"automaticClonedLocale": {
+				"locales": [
+					{
+						"source": "en-US",
+						"targets": [
+							"en-GB"
+						]
+					}
+				]
+			},
 			"automaticDistribution": {
 				"isActive": false
 			},
 			"category": "RELIGION_AND_SPIRITUALITY",
 			"distributionCountries": [],
+			"distributionMode": "PUBLIC",
 			"isAvailableWorldwide": true,
 			"locales": {
 				"en-US": {
 					"description": "This Alexa Skill assists users in memorizing verses of the Bible.  Verses can be added or removed from a list that is maintained for each user in a database.  The verses are read in segments to help the user learn the verse a portion at a time.  The user can then rate how well they know the verse which is stored in the database so follow up can be done on verses that the user doesn't know well.",
 					"examplePhrases": [
 						"Alexa open Bible Trainer",
-						"Alexa ask Bible Trainer how many verses are on my plan",
+						"Alexa ask Bible Trainer to review my plan",
 						"Alexa ask Bible Trainer to help me memorize John chapter one verse one"
 					],
 					"keywords": [
 						"Bible",
 						"memorization"
 					],
-					"largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/367f/a525a650881844e2b62e3bc514c41f52/APP_ICON_LARGE?versionId=4mfyMQsKfmT_IXy1_WAEv6_9STWBkUtj&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221021T105400Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QGAVVTZ74%2F20221021%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=1b88f9c6832de4eb98fee28417ab95497f7a8c3806b95b04fa528eeb6da689a2",
+					"largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/367f/a525a650881844e2b62e3bc514c41f52/APP_ICON_LARGE?versionId=4mfyMQsKfmT_IXy1_WAEv6_9STWBkUtj&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221025T043859Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QGAVVTZ74%2F20221025%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=6fd571bbfe1ed39724b76f527b04defa28fc75b1d793b647ed69938b6c42d8fb",
 					"name": "Bible Trainer",
-					"smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/76b6/246d806d88a44ab2abce311e4c970722/APP_ICON?versionId=x6WgVmbyASgqmWFdtfFs4QFbiR34WUNa&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221021T105400Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QGAVVTZ74%2F20221021%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=28b228c271a8541320b7d66282eec604c8b9c450b3f4728e26f7e897334a210c",
+					"smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/76b6/246d806d88a44ab2abce311e4c970722/APP_ICON?versionId=x6WgVmbyASgqmWFdtfFs4QFbiR34WUNa&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221025T043859Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QGAVVTZ74%2F20221025%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=da2cc94c2bdcd3a9a1b133dd39fc2c438258a1d9d8fd4a3129330f4fafecb18b",
+					"summary": "This skill helps users to memorize Bible verses"
+				},
+				"en-GB": {
+					"description": "This Alexa Skill assists users in memorizing verses of the Bible.  Verses can be added or removed from a list that is maintained for each user in a database.  The verses are read in segments to help the user learn the verse a portion at a time.  The user can then rate how well they know the verse which is stored in the database so follow up can be done on verses that the user doesn't know well.",
+					"examplePhrases": [
+						"Alexa open Bible Trainer",
+						"Alexa ask Bible Trainer to review my plan",
+						"Alexa ask Bible Trainer to help me memorize John chapter one verse one"
+					],
+					"keywords": [
+						"Bible",
+						"memorization"
+					],
+					"largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/367f/a525a650881844e2b62e3bc514c41f52/APP_ICON_LARGE?versionId=4mfyMQsKfmT_IXy1_WAEv6_9STWBkUtj&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221025T043859Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QGAVVTZ74%2F20221025%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=6fd571bbfe1ed39724b76f527b04defa28fc75b1d793b647ed69938b6c42d8fb",
+					"name": "Bible Trainer",
+					"smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/76b6/246d806d88a44ab2abce311e4c970722/APP_ICON?versionId=x6WgVmbyASgqmWFdtfFs4QFbiR34WUNa&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221025T043859Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QGAVVTZ74%2F20221025%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=da2cc94c2bdcd3a9a1b133dd39fc2c438258a1d9d8fd4a3129330f4fafecb18b",
 					"summary": "This skill helps users to memorize Bible verses"
 				}
 			},
-			"testingInstructions": "Sample Testing Instructions."
+			"testingInstructions": "Sample commands to test:\nask Bible Trainer to review my plan\nask Bible Trainer to add a verse to my plan\nask Bible Trainer to practice \nask Bible Trainer to listen to a verse\nask Bible Trainer to remove a verse from my plan"
 		}
 	}
 }

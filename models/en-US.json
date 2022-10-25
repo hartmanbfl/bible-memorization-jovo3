@@ -1,14 +1,15 @@
 {
-  "invocation": "bible trainer",
-  "intents": [
-    {
+	"invocation": "bible trainer",
+	"intents": [
+		{
 			"name": "YesIntent",
 			"phrases": [
 				"yes please",
 				"yup",
 				"yeah",
 				"yes"
-			]
+			],
+			"inputs": []
 		},
 		{
 			"name": "NoIntent",
@@ -17,724 +18,904 @@
 				"no thank",
 				"nope",
 				"no"
+			],
+			"inputs": []
+		},
+		{
+			"name": "GetRatingIntent",
+			"phrases": [
+				"{rating}"
+			],
+			"inputs": [
+				{
+					"name": "rating",
+					"type": {
+						"alexa": "AMAZON.NUMBER",
+						"dialogflow": "@sys.number"
+					}
+				}
 			]
 		},
-    {
-      "name":"GetRatingIntent",
-      "phrases":[
-        "{rating}"
-      ],
-      "inputs":[
-        {
-          "name": "rating",
-          "type": {
-            "alexa": "AMAZON.NUMBER",
-            "dialogflow": "@sys.number"
-          }
-        }
-      ]
-    },
-    {
-      "name":"HowManyVersesIntent",
-      "phrases":[
-        "How many verses are in my plan",
-        "for the number of verses in my plan",
-        "for the number of verses in the plan",
-        "for the number of verses",
-        "How many verses are in the memory plan",
-        "How many verses are in my memorization plan"
-      ]
-    },
-    {
-      "name":"WhichVersesInPlanIntent",
-      "phrases":[
-        "which verses are in my plan",
-        "what verses are in my plan",
-        "which verses are in the plan",
-        "what verses are in the plan",
-        "which verses are in the memorization plan",
-        "what verses are in the memorization plan",
-        "which verses are in my memorization plan",
-        "what verses are in my memorization plan",
-        "which verses are in the memory plan",
-        "what verses are in the memory plan",
-        "which verses are in my memory plan",
-        "what verses are in my memory plan",
-        "for the verses in the plan",
-        "for the verses in my plan",
-        "for all the verses in my plan",
-        "for all the verses in the plan",
-        "for my plan",
-        "for my memorization plan",
-        "for my memory plan"
-      ]
-    },
-    {
-      "name":"AddVerseToPlanIntent",
-      "phrases":[
-        "add {book} {chapter} {verse} to my plan"
-      ],
-      "inputs":[
-        {
-          "name": "book",
-          "type": "BooksOfTheBibleType",
-          "alexa": {
-            "samples": [
-              "The book is {book}",
-              "It is in {book}",
-              "{book}"
-            ]
-          }
-        },
-        {
-          "name": "chapter",
-          "type": {
-            "alexa": "AMAZON.NUMBER",
-            "dialogflow": "@sys.number"
-          },
-          "alexa": {
-            "samples": [
-              "chapter {chapter}",
-              "Read chapter {chapter}",
-              "I want chapter {chapter}",
-              "Read {chapter}",
-              "{chapter}"
-            ]
-          }
-        },
-        {
-          "name": "verse",
-          "type": {
-            "alexa": "AMAZON.NUMBER",
-            "dialogflow": "@sys.number"
-          },
-          "alexa": {
-            "samples": [
-              "I want verse {verse}",
-              "verse {verse}",
-              "{verse}"
-            ]
-          }
-        } 
-      ]
-    },
-    {
-      "name":"RemoveVerseFromPlanIntent",
-      "phrases":[
-        "remove {book} {chapter} {verse} from my plan"
-      ],
-      "inputs":[
-        {
-          "name": "book",
-          "type": "BooksOfTheBibleType",
-          "alexa": {
-            "samples": [
-              "The book is {book}",
-              "It is in {book}",
-              "{book}"
-            ]
-          }
-        },
-        {
-          "name": "chapter",
-          "type": {
-            "alexa": "AMAZON.NUMBER",
-            "dialogflow": "@sys.number"
-          },
-          "alexa": {
-            "samples": [
-              "chapter {chapter}",
-              "Read chapter {chapter}",
-              "I want chapter {chapter}",
-              "Read {chapter}",
-              "{chapter}"
-            ]
-          }
-        },
-        {
-          "name": "verse",
-          "type": {
-            "alexa": "AMAZON.NUMBER",
-            "dialogflow": "@sys.number"
-          },
-          "alexa": {
-            "samples": [
-              "I want verse {verse}",
-              "verse {verse}",
-              "{verse}"
-            ]
-          }
-        } 
-      ]
-    },
-    {
-      "name":"ReadVersesWithPausesIntent",
-      "phrases":[
-        "help me memorize {book} {chapter} {verse}",
-        "help me memorize {book} chapter {chapter} verse {verse}"
-      ],
-      "inputs": [
-        {
-          "name": "book",
-          "type": "BooksOfTheBibleType",
-          "alexa": {
-            "samples": [
-              "The book is {book}",
-              "It is in {book}",
-              "{book}"
-            ]
-          }
-        },
-        {
-          "name": "chapter",
-          "type": {
-            "alexa": "AMAZON.NUMBER",
-            "dialogflow": "@sys.number"
-          },
-          "alexa": {
-            "samples": [
-              "chapter {chapter}",
-              "Read chapter {chapter}",
-              "I want chapter {chapter}",
-              "Read {chapter}",
-              "{chapter}"
-            ]
-          }
-        },
-        {
-          "name": "verse",
-          "type": {
-            "alexa": "AMAZON.NUMBER",
-            "dialogflow": "@sys.number"
-          },
-          "alexa": {
-            "samples": [
-              "I want verse {verse}",
-              "verse {verse}",
-              "{verse}"
-            ]
-          }
-        }
-      ] 
-    },
-    {
-      "name": "GetOptionsIntent",
-      "phrases": [
-        "Get options",
-        "List options",
-        "List the options",
-        "Get the options",
-        "Tell me the options"
-      ]
-    },
-    {
-      "name": "GetRandomVerseIntent",
-      "phrases": [
-        "Get a random verse",
-        "Get a random verse from my list",
-        "Read me a random verse from my list",
-        "Read me a verse from my list"
-      ]
-    },
-    {
-      "name": "PromptToMemorizeVerseIntent",
-      "phrases": [
-        "Memorize a verse",
-        "I want to memorize a verse",
-        "I'd like to memorize a verse"
-      ]
-    },
-    {
-      "name": "ListenToUserReciteTheVerseIntent",
-      "phrases": [
-        "The verse is {passage}"
-      ],
-      "inputs": [
-        {
-          "name": "passage",
-          "type": {
-            "alexa": "AMAZON.SearchQuery",
-            "dialogflow": "@sys.any"
-          }
-        }
-      ]
-    },
-    {
-      "name": "MemorizeVerseIntent",
-      "phrases": [
-        "Memorize {book} {chapter} verse {verse}",
-        "Memorize {book} chapter {chapter} verse {verse}",
-        "Memorize {book} {chapter} verse {verse}",
-        "I want to memorize {book} {chapter} verse {verse}",
-        "I want to memorize {book} chapter {chapter} verse {verse}",
-        "I want to memorize {book} {chapter} verse {verse}",
-        "Will you please help me memorize {book} {chapter} verse {verse}",
-        "Will you please help me to memorize {book} {chapter} verse {verse}"
-      ],
-      "inputs": [
-        {
-          "name": "book",
-          "type": "BooksOfTheBibleType",
-          "alexa": {
-            "samples": [
-              "The book is {book}",
-              "It is in {book}",
-              "{book}"
-            ]
-          }
-        },
-        {
-          "name": "chapter",
-          "type": {
-            "alexa": "AMAZON.NUMBER",
-            "dialogflow": "@sys.number"
-          },
-          "alexa": {
-            "samples": [
-              "chapter {chapter}",
-              "Read chapter {chapter}",
-              "I want chapter {chapter}",
-              "Read {chapter}",
-              "{chapter}"
-            ]
-          }
-        },
-        {
-          "name": "verse",
-          "type": {
-            "alexa": "AMAZON.NUMBER",
-            "dialogflow": "@sys.number"
-          },
-          "alexa": {
-            "samples": [
-              "I want verse {verse}",
-              "verse {verse}",
-              "{verse}"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "name": "ReadVerseIntent",
-      "phrases": [
-        "{book} {chapter} {verse}",
-        "Read {book} chapter {chapter} verse {verse}",
-        "Read {book} {chapter} verse {verse}",
-        "Read me {book} chapter {chapter} verse {verse}",
-        "Read me {book} {chapter} verse {verse}",
-        "Will you please read me {book} {chapter} verse {verse}",
-        "Please read {book} {chapter} verse {verse}",
-        "Read a verse"
-      ],
-      "inputs": [
-        {
-          "name": "book",
-          "type": "BooksOfTheBibleType",
-          "alexa": {
-            "samples": [
-              "The book is {book}",
-              "It is in {book}",
-              "{book}"
-            ]
-          }
-        },
-        {
-          "name": "chapter",
-          "type": {
-            "alexa": "AMAZON.NUMBER",
-            "dialogflow": "@sys.number"
-          },
-          "alexa": {
-            "samples": [
-              "chapter {chapter}",
-              "Read chapter {chapter}",
-              "I want chapter {chapter}",
-              "Read {chapter}",
-              "{chapter}"
-            ]
-          }
-        },
-        {
-          "name": "verse",
-          "type": {
-            "alexa": "AMAZON.NUMBER",
-            "dialogflow": "@sys.number"
-          },
-          "alexa": {
-            "samples": [
-              "I want verse {verse}",
-              "verse {verse}",
-              "{verse}"
-            ]
-          }
-        }
-      ]
-    }
-  ],
-  "inputTypes": [
-    {
-      "name": "BooksOfTheBibleType",
-      "values": [
-        {
-          "value": "paul",
-          "synonyms": [
-            "paul's letters",
-            "paul's epistles",
-            "books written by Paul",
-            "pauls books"
-          ],
-          "id": "PE"
-        },
-        {
-          "value": "bible",
-          "synonyms": [
-            "the bible",
-            "the whole bible",
-            "bible",
-            "entire bible"
-          ],
-          "id": "BIBLE"
-        },
-        {
-          "value": "new testament",
-          "synonyms": [
-            "the new testament"
-          ],
-          "id": "NT"
-        },
-        {
-          "value": "old testament",
-          "synonyms": [
-            "the old testament"
-          ],
-          "id": "OT"
-        },
-        {
-          "value": "revelation",
-          "id": "REV"
-        },
-        {
-          "value": "jude",
-          "id": "JUD"
-        },
-        {
-          "value": "two peter",
-          "synonyms": [
-            "second peter"
-          ],
-          "id": "2PE"
-        },
-        {
-          "value": "one peter",
-          "synonyms": [
-            "first peter"
-          ],
-          "id": "1PE"
-        },
-        {
-          "value": "three john",
-          "synonyms": [
-            "third john"
-          ],
-          "id": "3JN"
-        },
-        {
-          "value": "two john",
-          "synonyms": [
-            "second john"
-          ],
-          "id": "2JN"
-        },
-        {
-          "value": "one john",
-          "synonyms": [
-            "first john"
-          ],
-          "id": "1JN"
-        },
-        {
-          "value": "james",
-          "id": "JAS"
-        },
-        {
-          "value": "hebrews",
-          "id": "HEB"
-        },
-        {
-          "value": "philemon",
-          "id": "PHM"
-        },
-        {
-          "value": "titus",
-          "id": "TIT"
-        },
-        {
-          "value": "two timothy",
-          "synonyms": [
-            "second timothy"
-          ],
-          "id": "2TI"
-        },
-        {
-          "value": "one timothy",
-          "synonyms": [
-            "first timothy"
-          ],
-          "id": "1TI"
-        },
-        {
-          "value": "two thessalonians",
-          "synonyms": [
-            "second thessalonians"
-          ],
-          "id": "2TH"
-        },
-        {
-          "value": "one thessalonians",
-          "synonyms": [
-            "first thessalonians"
-          ],
-          "id": "1TH"
-        },
-        {
-          "value": "colossians",
-          "id": "COL"
-        },
-        {
-          "value": "philippians",
-          "id": "PHP"
-        },
-        {
-          "value": "ephesians",
-          "id": "EPH"
-        },
-        {
-          "value": "galatians",
-          "id": "GAL"
-        },
-        {
-          "value": "two corinthians",
-          "synonyms": [
-            "second corinthians"
-          ],
-          "id": "2CO"
-        },
-        {
-          "value": "one corinthians",
-          "synonyms": [
-            "first corinthians"
-          ],
-          "id": "1CO"
-        },
-        {
-          "value": "romans",
-          "id": "ROM"
-        },
-        {
-          "value": "acts",
-          "id": "ACT"
-        },
-        {
-          "value": "john",
-          "id": "JHN"
-        },
-        {
-          "value": "luke",
-          "id": "LUK"
-        },
-        {
-          "value": "mark",
-          "id": "MRK"
-        },
-        {
-          "value": "matthew",
-          "id": "MAT"
-        },
-        {
-          "value": "malachi",
-          "id": "MAL"
-        },
-        {
-          "value": "zechariah",
-          "id": "ZEC"
-        },
-        {
-          "value": "haggai",
-          "id": "HAG"
-        },
-        {
-          "value": "zephaniah",
-          "id": "ZEP"
-        },
-        {
-          "value": "habbakuk",
-          "id": "HAB"
-        },
-        {
-          "value": "nahum",
-          "id": "NAM"
-        },
-        {
-          "value": "micah",
-          "id": "MIC"
-        },
-        {
-          "value": "jonah",
-          "id": "JON"
-        },
-        {
-          "value": "obadiah",
-          "id": "OBA"
-        },
-        {
-          "value": "amos",
-          "id": "AMO"
-        },
-        {
-          "value": "joel",
-          "id": "JOL"
-        },
-        {
-          "value": "hosea",
-          "id": "HOS"
-        },
-        {
-          "value": "daniel",
-          "id": "DAN"
-        },
-        {
-          "value": "ezekiel",
-          "id": "EZK"
-        },
-        {
-          "value": "lamentations",
-          "id": "LAM"
-        },
-        {
-          "value": "jeremiah",
-          "id": "JER"
-        },
-        {
-          "value": "isaiah",
-          "id": "ISA"
-        },
-        {
-          "value": "song of solomon",
-          "id": "SNG"
-        },
-        {
-          "value": "ecclesiastes",
-          "id": "ECC"
-        },
-        {
-          "value": "proverbs",
-          "id": "PRO"
-        },
-        {
-          "value": "psalm",
-          "synonyms": [
-            "psalms"
-          ],
-          "id": "PSA"
-        },
-        {
-          "value": "job",
-          "id": "JOB"
-        },
-        {
-          "value": "esther",
-          "id": "EST"
-        },
-        {
-          "value": "nehemiah",
-          "id": "NEH"
-        },
-        {
-          "value": "ezra",
-          "id": "EZR"
-        },
-        {
-          "value": "two chronicles",
-          "synonyms": [
-            "second chronicles"
-          ],
-          "id": "2CH"
-        },
-        {
-          "value": "one chronicles",
-          "synonyms": [
-            "first chronicles"
-          ],
-          "id": "1CH"
-        },
-        {
-          "value": "two kings",
-          "synonyms": [
-            "second kings"
-          ],
-          "id": "2KI"
-        },
-        {
-          "value": "one kings",
-          "synonyms": [
-            "first kings"
-          ],
-          "id": "1KI"
-        },
-        {
-          "value": "two samuel",
-          "synonyms": [
-            "second samuel"
-          ],
-          "id": "2SA"
-        },
-        {
-          "value": "one samuel",
-          "synonyms": [
-            "first samuel"
-          ],
-          "id": "1SA"
-        },
-        {
-          "value": "ruth",
-          "id": "RUT"
-        },
-        {
-          "value": "judges",
-          "id": "JDG"
-        },
-        {
-          "value": "joshua",
-          "id": "JOS"
-        },
-        {
-          "value": "deuteronomy",
-          "id": "DEU"
-        },
-        {
-          "value": "numbers",
-          "id": "NUM"
-        },
-        {
-          "value": "leviticus",
-          "id": "LEV"
-        },
-        {
-          "value": "exodus",
-          "id": "EXO"
-        },
-        {
-          "value": "genesis",
-          "id": "GEN"
-        }
-      ]
-    }
-  ],
-  "alexa": {
-    "interactionModel": {
-      "prompts": [
-        {
+		{
+			"name": "HowManyVersesIntent",
+			"phrases": [
+				"How many verses are in my plan",
+				"for the number of verses in my plan",
+				"for the number of verses in the plan",
+				"for the number of verses",
+				"How many verses are in the memory plan",
+				"How many verses are in my memorization plan"
+			],
+			"inputs": []
+		},
+		{
+			"name": "WhichVersesInPlanIntent",
+			"phrases": [
+				"review my list",
+				"which verses are on my list",
+				"what verses are on my list",
+				"what's in my plan",
+				"review memory plan",
+				"review my memory plan",
+				"which verses are in my plan",
+				"what verses are in my plan",
+				"which verses are in the plan",
+				"what verses are in the plan",
+				"which verses are in the memorization plan",
+				"what verses are in the memorization plan",
+				"which verses are in my memorization plan",
+				"what verses are in my memorization plan",
+				"which verses are in the memory plan",
+				"what verses are in the memory plan",
+				"which verses are in my memory plan",
+				"what verses are in my memory plan",
+				"for the verses in the plan",
+				"for the verses in my plan",
+				"for all the verses in my plan",
+				"for all the verses in the plan",
+				"for my plan",
+				"for my memorization plan",
+				"for my memory plan"
+			],
+			"inputs": []
+		},
+		{
+			"name": "AddVerseToPlanIntent",
+			"phrases": [
+				"add to my plan",
+				"add a verse for my plan",
+				"add {book} {chapter} {verse} to the plan",
+				"add a verse to the list",
+				"add {book} {chapter} {verse} to my list",
+				"add a verse to my list",
+				"add a verse to my plan",
+				"add the passage {book} {chapter} {verse} to my plan",
+				"add the verse {book} {chapter} {verse} to my plan",
+				"add {book} {chapter} {verse} to my plan"
+			],
+			"inputs": [
+				{
+					"name": "book",
+					"type": "BooksOfTheBibleType",
+					"alexa": {
+						"samples": [
+							"The book is {book}",
+							"It is in {book}",
+							"{book}"
+						]
+					}
+				},
+				{
+					"name": "chapter",
+					"type": {
+						"alexa": "AMAZON.NUMBER",
+						"dialogflow": "@sys.number"
+					},
+					"alexa": {
+						"samples": [
+							"chapter {chapter}",
+							"Read chapter {chapter}",
+							"I want chapter {chapter}",
+							"Read {chapter}",
+							"{chapter}"
+						]
+					}
+				},
+				{
+					"name": "verse",
+					"type": {
+						"alexa": "AMAZON.NUMBER",
+						"dialogflow": "@sys.number"
+					},
+					"alexa": {
+						"samples": [
+							"I want verse {verse}",
+							"verse {verse}",
+							"{verse}"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "RemoveVerseFromPlanIntent",
+			"phrases": [
+				"remove a verse from the plan",
+				"remove a verse from my plan",
+				"delete {book} {chapter} {verse} from the plan",
+				"delete {book} chapter {chapter} verse {verse} from my plan",
+				"delete {book} chapter {chapter} verse {verse} from the plan",
+				"delete {book} chapter {chapter} verse {verse}",
+				"delete a verse from my plan",
+				"delete a verse from the plan",
+				"delete a verse",
+				"delete {book} {chapter} {verse} from my plan",
+				"remove {book} {chapter} {verse} from my plan"
+			],
+			"inputs": [
+				{
+					"name": "book",
+					"type": "BooksOfTheBibleType",
+					"alexa": {
+						"samples": [
+							"The book is {book}",
+							"It is in {book}",
+							"{book}"
+						]
+					}
+				},
+				{
+					"name": "chapter",
+					"type": {
+						"alexa": "AMAZON.NUMBER",
+						"dialogflow": "@sys.number"
+					},
+					"alexa": {
+						"samples": [
+							"chapter {chapter}",
+							"Read chapter {chapter}",
+							"I want chapter {chapter}",
+							"Read {chapter}",
+							"{chapter}"
+						]
+					}
+				},
+				{
+					"name": "verse",
+					"type": {
+						"alexa": "AMAZON.NUMBER",
+						"dialogflow": "@sys.number"
+					},
+					"alexa": {
+						"samples": [
+							"I want verse {verse}",
+							"verse {verse}",
+							"{verse}"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "ReadVersesWithPausesIntent",
+			"phrases": [
+				"memorize {book} {chapter} verse {verse}",
+				"memorize {book} chapter {chapter} verse {verse}",
+				"memorize {book} {chapter} {verse}",
+				"help me memorize {book} {chapter} {verse}",
+				"help me memorize {book} chapter {chapter} verse {verse}"
+			],
+			"inputs": [
+				{
+					"name": "book",
+					"type": "BooksOfTheBibleType",
+					"alexa": {
+						"samples": [
+							"The book is {book}",
+							"It is in {book}",
+							"{book}"
+						]
+					}
+				},
+				{
+					"name": "chapter",
+					"type": {
+						"alexa": "AMAZON.NUMBER",
+						"dialogflow": "@sys.number"
+					},
+					"alexa": {
+						"samples": [
+							"chapter {chapter}",
+							"Read chapter {chapter}",
+							"I want chapter {chapter}",
+							"Read {chapter}",
+							"{chapter}"
+						]
+					}
+				},
+				{
+					"name": "verse",
+					"type": {
+						"alexa": "AMAZON.NUMBER",
+						"dialogflow": "@sys.number"
+					},
+					"alexa": {
+						"samples": [
+							"I want verse {verse}",
+							"verse {verse}",
+							"{verse}"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "GetOptionsIntent",
+			"phrases": [
+				"Get options",
+				"List options",
+				"List the options",
+				"Get the options",
+				"Tell me the options"
+			],
+			"inputs": []
+		},
+		{
+			"name": "ListenToUserReciteTheVerseIntent",
+			"phrases": [
+				"The verse is {passage}",
+				"Get a random verse from my list",
+				"Read me a random verse from my list",
+				"Read me a verse from my list"
+			],
+			"inputs": [
+				{
+					"name": "passage",
+					"type": {
+						"alexa": "AMAZON.SearchQuery"
+					}
+				}
+			]
+		},
+		{
+			"name": "PracticeSayingVerseIntent",
+			"phrases": [
+				"practice saying {book} chapter {chapter} verse {verse}",
+				"practice saying {book} {chapter} {verse}",
+				"Practice saying a verse"
+			],
+			"inputs": [
+				{
+					"name": "book",
+					"type": "BooksOfTheBibleType",
+					"alexa": {
+						"samples": [
+							"The book is {book}",
+							"It is in {book}",
+							"{book}"
+						]
+					}
+				},
+				{
+					"name": "chapter",
+					"type": {
+						"alexa": "AMAZON.NUMBER"
+					},
+					"alexa": {
+						"samples": [
+							"chapter {chapter}",
+							"Read chapter {chapter}",
+							"I want chapter {chapter}",
+							"Read {chapter}",
+							"{chapter}"
+						]
+					}
+				},
+				{
+					"name": "verse",
+					"type": {
+						"alexa": "AMAZON.NUMBER"
+					},
+					"alexa": {
+						"samples": [
+							"I want verse {verse}",
+							"verse {verse}",
+							"{verse}"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "ReadSpecificVerseIntent",
+			"phrases": [
+				"I want to listen to {book} chapter {chapter} verse {verse}",
+				"I want to listen to {book} {chapter} verse {verse}",
+				"I want to listen to {book} {chapter} {verse}",
+				"Read {book} chapter {chapter} verse {verse}",
+				"Read {book} {chapter} verse {verse}",
+				"Read me {book} chapter {chapter} verse {verse}",
+				"Read me {book} {chapter} verse {verse}",
+				"Will you please read me {book} {chapter} verse {verse}",
+				"Please read {book} {chapter} verse {verse}"
+			],
+			"inputs": [
+				{
+					"name": "book",
+					"type": "BooksOfTheBibleType",
+					"alexa": {
+						"samples": [
+							"The book is {book}",
+							"It is in {book}",
+							"{book}"
+						]
+					}
+				},
+				{
+					"name": "chapter",
+					"type": {
+						"alexa": "AMAZON.NUMBER"
+					},
+					"alexa": {
+						"samples": [
+							"chapter {chapter}",
+							"Read chapter {chapter}",
+							"I want chapter {chapter}",
+							"Read {chapter}",
+							"{chapter}"
+						]
+					}
+				},
+				{
+					"name": "verse",
+					"type": {
+						"alexa": "AMAZON.NUMBER"
+					},
+					"alexa": {
+						"samples": [
+							"I want verse {verse}",
+							"verse {verse}",
+							"{verse}"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "ReadVerseIntent",
+			"phrases": [
+				"Listen to a verse",
+				"Please read a verse",
+				"I would like to listen to a verse",
+				"Read a verse from the Bible",
+				"Look up a verse",
+				"I would like to hear a verse",
+				"Read a verse",
+				"Will you please help me to memorize {book} {chapter} verse {verse}"
+			],
+			"inputs": [
+				{
+					"name": "book",
+					"type": "BooksOfTheBibleType",
+					"alexa": {
+						"samples": [
+							"The book is {book}",
+							"It is in {book}",
+							"{book}"
+						]
+					}
+				},
+				{
+					"name": "chapter",
+					"type": {
+						"alexa": "AMAZON.NUMBER",
+						"dialogflow": "@sys.number"
+					},
+					"alexa": {
+						"samples": [
+							"chapter {chapter}",
+							"Read chapter {chapter}",
+							"I want chapter {chapter}",
+							"Read {chapter}",
+							"{chapter}"
+						]
+					}
+				},
+				{
+					"name": "verse",
+					"type": {
+						"alexa": "AMAZON.NUMBER",
+						"dialogflow": "@sys.number"
+					},
+					"alexa": {
+						"samples": [
+							"I want verse {verse}",
+							"verse {verse}",
+							"{verse}"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "PracticeAVerseIntent",
+			"phrases": [
+				"go to practice mode",
+				"practice",
+				"do a verse from my memory plan",
+				"lets practice a verse from the memory list",
+				"practice a verse from the memorization list",
+				"practice a verse from the memory list",
+				"practice mode",
+				"practice a verse from the memory plan",
+				"practice a verse from my memory plan",
+				"Practice a verse"
+			],
+			"inputs": [
+				{
+					"name": "book",
+					"type": "BooksOfTheBibleType",
+					"alexa": {
+						"samples": [
+							"The book is {book}",
+							"It is in {book}",
+							"{book}"
+						]
+					}
+				},
+				{
+					"name": "chapter",
+					"type": {
+						"alexa": "AMAZON.NUMBER",
+						"dialogflow": "@sys.number"
+					},
+					"alexa": {
+						"samples": [
+							"chapter {chapter}",
+							"Read chapter {chapter}",
+							"I want chapter {chapter}",
+							"Read {chapter}",
+							"{chapter}"
+						]
+					}
+				},
+				{
+					"name": "verse",
+					"type": {
+						"alexa": "AMAZON.NUMBER",
+						"dialogflow": "@sys.number"
+					},
+					"alexa": {
+						"samples": [
+							"I want verse {verse}",
+							"verse {verse}",
+							"{verse}"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "MemorizeAVerseIntent",
+			"phrases": [
+				"learn a verse",
+				"help me to learn a verse",
+				"help me learn a verse",
+				"help me to memorize a verse",
+				"help me memorize a verse",
+				"Memorize a verse"
+			],
+			"inputs": []
+		},
+		{
+			"name": "GetBookChapterVerseIntent",
+			"phrases": [
+				"{book} {chapter} verse {verse}",
+				"{book} chapter {chapter} verse {verse}",
+				"{book} {chapter} {verse}"
+			],
+			"inputs": [
+				{
+					"name": "book",
+					"type": "BooksOfTheBibleType",
+					"alexa": {
+						"samples": [
+							"the book is {book}",
+							"it is {book}",
+							"{book}"
+						]
+					}
+				},
+				{
+					"name": "chapter",
+					"type": {
+						"alexa": "AMAZON.NUMBER"
+					},
+					"alexa": {
+						"samples": [
+							"chapter {chapter}",
+							"{chapter}"
+						]
+					}
+				},
+				{
+					"name": "verse",
+					"type": {
+						"alexa": "AMAZON.NUMBER"
+					},
+					"alexa": {
+						"samples": [
+							"verse {verse}",
+							"{verse}"
+						]
+					}
+				}
+			]
+		}
+	],
+	"inputTypes": [
+		{
+			"name": "BooksOfTheBibleType",
+			"values": [
+				{
+					"value": "paul",
+					"synonyms": [
+						"paul's letters",
+						"paul's epistles",
+						"books written by Paul",
+						"pauls books"
+					],
+					"id": "PE"
+				},
+				{
+					"value": "bible",
+					"synonyms": [
+						"the bible",
+						"the whole bible",
+						"bible",
+						"entire bible"
+					],
+					"id": "BIBLE"
+				},
+				{
+					"value": "new testament",
+					"synonyms": [
+						"the new testament"
+					],
+					"id": "NT"
+				},
+				{
+					"value": "old testament",
+					"synonyms": [
+						"the old testament"
+					],
+					"id": "OT"
+				},
+				{
+					"value": "revelation",
+					"id": "REV"
+				},
+				{
+					"value": "jude",
+					"id": "JUD"
+				},
+				{
+					"value": "two peter",
+					"synonyms": [
+						"second peter"
+					],
+					"id": "2PE"
+				},
+				{
+					"value": "one peter",
+					"synonyms": [
+						"first peter"
+					],
+					"id": "1PE"
+				},
+				{
+					"value": "three john",
+					"synonyms": [
+						"third john"
+					],
+					"id": "3JN"
+				},
+				{
+					"value": "two john",
+					"synonyms": [
+						"second john"
+					],
+					"id": "2JN"
+				},
+				{
+					"value": "one john",
+					"synonyms": [
+						"first john"
+					],
+					"id": "1JN"
+				},
+				{
+					"value": "james",
+					"id": "JAS"
+				},
+				{
+					"value": "hebrews",
+					"id": "HEB"
+				},
+				{
+					"value": "philemon",
+					"id": "PHM"
+				},
+				{
+					"value": "titus",
+					"id": "TIT"
+				},
+				{
+					"value": "two timothy",
+					"synonyms": [
+						"second timothy"
+					],
+					"id": "2TI"
+				},
+				{
+					"value": "one timothy",
+					"synonyms": [
+						"first timothy"
+					],
+					"id": "1TI"
+				},
+				{
+					"value": "two thessalonians",
+					"synonyms": [
+						"second thessalonians"
+					],
+					"id": "2TH"
+				},
+				{
+					"value": "one thessalonians",
+					"synonyms": [
+						"first thessalonians"
+					],
+					"id": "1TH"
+				},
+				{
+					"value": "colossians",
+					"id": "COL"
+				},
+				{
+					"value": "philippians",
+					"id": "PHP"
+				},
+				{
+					"value": "ephesians",
+					"id": "EPH"
+				},
+				{
+					"value": "galatians",
+					"id": "GAL"
+				},
+				{
+					"value": "two corinthians",
+					"synonyms": [
+						"second corinthians"
+					],
+					"id": "2CO"
+				},
+				{
+					"value": "one corinthians",
+					"synonyms": [
+						"first corinthians"
+					],
+					"id": "1CO"
+				},
+				{
+					"value": "romans",
+					"id": "ROM"
+				},
+				{
+					"value": "acts",
+					"id": "ACT"
+				},
+				{
+					"value": "john",
+					"id": "JHN"
+				},
+				{
+					"value": "luke",
+					"id": "LUK"
+				},
+				{
+					"value": "mark",
+					"id": "MRK"
+				},
+				{
+					"value": "matthew",
+					"id": "MAT"
+				},
+				{
+					"value": "malachi",
+					"id": "MAL"
+				},
+				{
+					"value": "zechariah",
+					"id": "ZEC"
+				},
+				{
+					"value": "haggai",
+					"id": "HAG"
+				},
+				{
+					"value": "zephaniah",
+					"id": "ZEP"
+				},
+				{
+					"value": "habbakuk",
+					"id": "HAB"
+				},
+				{
+					"value": "nahum",
+					"id": "NAM"
+				},
+				{
+					"value": "micah",
+					"id": "MIC"
+				},
+				{
+					"value": "jonah",
+					"id": "JON"
+				},
+				{
+					"value": "obadiah",
+					"id": "OBA"
+				},
+				{
+					"value": "amos",
+					"id": "AMO"
+				},
+				{
+					"value": "joel",
+					"id": "JOL"
+				},
+				{
+					"value": "hosea",
+					"id": "HOS"
+				},
+				{
+					"value": "daniel",
+					"id": "DAN"
+				},
+				{
+					"value": "ezekiel",
+					"id": "EZK"
+				},
+				{
+					"value": "lamentations",
+					"id": "LAM"
+				},
+				{
+					"value": "jeremiah",
+					"id": "JER"
+				},
+				{
+					"value": "isaiah",
+					"id": "ISA"
+				},
+				{
+					"value": "song of solomon",
+					"id": "SNG"
+				},
+				{
+					"value": "ecclesiastes",
+					"id": "ECC"
+				},
+				{
+					"value": "proverbs",
+					"id": "PRO"
+				},
+				{
+					"value": "psalm",
+					"synonyms": [
+						"psalms"
+					],
+					"id": "PSA"
+				},
+				{
+					"value": "job",
+					"id": "JOB"
+				},
+				{
+					"value": "esther",
+					"id": "EST"
+				},
+				{
+					"value": "nehemiah",
+					"id": "NEH"
+				},
+				{
+					"value": "ezra",
+					"id": "EZR"
+				},
+				{
+					"value": "two chronicles",
+					"synonyms": [
+						"second chronicles"
+					],
+					"id": "2CH"
+				},
+				{
+					"value": "one chronicles",
+					"synonyms": [
+						"first chronicles"
+					],
+					"id": "1CH"
+				},
+				{
+					"value": "two kings",
+					"synonyms": [
+						"second kings"
+					],
+					"id": "2KI"
+				},
+				{
+					"value": "one kings",
+					"synonyms": [
+						"first kings"
+					],
+					"id": "1KI"
+				},
+				{
+					"value": "two samuel",
+					"synonyms": [
+						"second samuel"
+					],
+					"id": "2SA"
+				},
+				{
+					"value": "one samuel",
+					"synonyms": [
+						"first samuel"
+					],
+					"id": "1SA"
+				},
+				{
+					"value": "ruth",
+					"id": "RUT"
+				},
+				{
+					"value": "judges",
+					"id": "JDG"
+				},
+				{
+					"value": "joshua",
+					"id": "JOS"
+				},
+				{
+					"value": "deuteronomy",
+					"id": "DEU"
+				},
+				{
+					"value": "numbers",
+					"id": "NUM"
+				},
+				{
+					"value": "leviticus",
+					"id": "LEV"
+				},
+				{
+					"value": "exodus",
+					"id": "EXO"
+				},
+				{
+					"value": "genesis",
+					"id": "GEN"
+				}
+			]
+		}
+	],
+	"alexa": {
+		"interactionModel": {
+			"prompts": [
+				{
 					"id": "Slot.Validation.587586657820.833947472197.828571793071",
 					"variations": [
 						{
@@ -743,16 +924,16 @@
 						}
 					]
 				},
-        {
+				{
 					"id": "Elicit.Slot.587586657820.833947472197",
 					"variations": [
 						{
 							"type": "PlainText",
-							"value": "I didn't catch which book you wanted.  Will you please repeat it?"
+							"value": "Which book?"
 						}
 					]
 				},
-        {
+				{
 					"id": "Elicit.Slot.1449555058286.312557981914",
 					"variations": [
 						{
@@ -769,62 +950,366 @@
 							"value": "What verse do you want?"
 						}
 					]
+				},
+				{
+					"id": "Elicit.Slot.998388583326.1549033548241",
+					"variations": [
+						{
+							"type": "PlainText",
+							"value": "What book of the Bible?"
+						}
+					]
+				},
+				{
+					"id": "Elicit.Slot.998388583326.815592070516",
+					"variations": [
+						{
+							"type": "PlainText",
+							"value": "Which chapter?"
+						},
+						{
+							"type": "PlainText",
+							"value": "What chapter?"
+						}
+					]
+				},
+				{
+					"id": "Elicit.Slot.998388583326.828213585404",
+					"variations": [
+						{
+							"type": "PlainText",
+							"value": "What verse?"
+						},
+						{
+							"type": "PlainText",
+							"value": "Which verse?"
+						}
+					]
+				},
+				{
+					"id": "Elicit.Slot.867358855970.424913054496",
+					"variations": [
+						{
+							"type": "PlainText",
+							"value": "what book?"
+						},
+						{
+							"type": "PlainText",
+							"value": "which book?"
+						}
+					]
+				},
+				{
+					"id": "Elicit.Slot.867358855970.664934923876",
+					"variations": [
+						{
+							"type": "PlainText",
+							"value": "which chapter?"
+						},
+						{
+							"type": "PlainText",
+							"value": "what chapter?"
+						}
+					]
+				},
+				{
+					"id": "Elicit.Slot.867358855970.846594688870",
+					"variations": [
+						{
+							"type": "PlainText",
+							"value": "which verse?"
+						},
+						{
+							"type": "PlainText",
+							"value": "what verse?"
+						}
+					]
+				},
+				{
+					"id": "Elicit.Slot.842805476157.236458585134",
+					"variations": [
+						{
+							"type": "PlainText",
+							"value": "Which book?"
+						}
+					]
+				},
+				{
+					"id": "Elicit.Slot.842805476157.11093525019",
+					"variations": [
+						{
+							"type": "PlainText",
+							"value": "Which chapter?"
+						},
+						{
+							"type": "PlainText",
+							"value": "What chapter?"
+						}
+					]
+				},
+				{
+					"id": "Elicit.Slot.842805476157.1093148667483",
+					"variations": [
+						{
+							"type": "PlainText",
+							"value": "Which verse?"
+						},
+						{
+							"type": "PlainText",
+							"value": "What verse?"
+						}
+					]
+				},
+				{
+					"id": "Elicit.Slot.1451039687934.204033643600",
+					"variations": [
+						{
+							"type": "PlainText",
+							"value": "Which book of the Bible?"
+						},
+						{
+							"type": "PlainText",
+							"value": "What book?"
+						},
+						{
+							"type": "PlainText",
+							"value": "Which book?"
+						}
+					]
+				},
+				{
+					"id": "Elicit.Slot.1451039687934.130556456033",
+					"variations": [
+						{
+							"type": "PlainText",
+							"value": "what chapter?"
+						},
+						{
+							"type": "PlainText",
+							"value": "Which chapter?"
+						}
+					]
+				},
+				{
+					"id": "Elicit.Slot.1451039687934.1082766791042",
+					"variations": [
+						{
+							"type": "PlainText",
+							"value": "What verse?"
+						},
+						{
+							"type": "PlainText",
+							"value": "Which verse?"
+						}
+					]
+				},
+				{
+					"id": "Slot.Validation.1291172989948.584485952101.309963514882",
+					"variations": [
+						{
+							"type": "PlainText",
+							"value": "I'm sorry but I did not recognize that book of the Bible.  Please try again."
+						}
+					]
 				}
-      ],
-      "dialog": {
-        "intents": [
-          {
-            "name": "ReadVerseIntent",
-            "confirmationRequired": false,
-            "prompts": {},
-            "slots": [
-              {
-                "name": "book",
-                "type": "BooksOfTheBibleType",
-                "elicitationRequired": true,
-                "confirmationRequired": false,
-                "prompts": {
-                  "elicitation": "Elicit.Slot.587586657820.833947472197"
-                }
-              },
-              {
-                "name": "chapter",
-                "type": "AMAZON.NUMBER",
-                "elicitationRequired": true,
-                "confirmationRequired": false,
-                "prompts": {
-                  "elicitation": "Elicit.Slot.1449555058286.312557981914"
-                }
-              },
-              {
-                "name": "verse",
-                "type": "AMAZON.NUMBER",
-                "elicitationRequired": true,
-                "confirmationRequired": false,
-                "prompts": {
-                  "elicitation": "Elicit.Slot.1449555058286.754795822058"
-                }
-              }
-            ],
-            "delegationStrategy": "ALWAYS"
-          }
-        ]
-      },
-      "languageModel": {
-        "intents": [
-          {
-            "name": "AMAZON.CancelIntent",
-            "samples": []
-          },
-          {
-            "name": "AMAZON.HelpIntent",
-            "samples": []
-          },
-          {
-            "name": "AMAZON.StopIntent",
-            "samples": []
-          },
-          {
+			],
+			"dialog": {
+				"intents": [
+					{
+						"name": "ReadSpecificVerseIntent",
+						"confirmationRequired": false,
+						"prompts": {},
+						"slots": [
+							{
+								"name": "book",
+								"type": "BooksOfTheBibleType",
+								"elicitationRequired": true,
+								"confirmationRequired": false,
+								"prompts": {
+									"elicitation": "Elicit.Slot.587586657820.833947472197"
+								}
+							},
+							{
+								"name": "chapter",
+								"type": "AMAZON.NUMBER",
+								"elicitationRequired": true,
+								"confirmationRequired": false,
+								"prompts": {
+									"elicitation": "Elicit.Slot.1449555058286.312557981914"
+								}
+							},
+							{
+								"name": "verse",
+								"type": "AMAZON.NUMBER",
+								"elicitationRequired": true,
+								"confirmationRequired": false,
+								"prompts": {
+									"elicitation": "Elicit.Slot.1449555058286.754795822058"
+								}
+							}
+						],
+						"delegationStrategy": "ALWAYS"
+					},
+					{
+						"name": "AddVerseToPlanIntent",
+						"confirmationRequired": false,
+						"prompts": {},
+						"slots": [
+							{
+								"name": "book",
+								"type": "BooksOfTheBibleType",
+								"elicitationRequired": true,
+								"confirmationRequired": false,
+								"prompts": {
+									"elicitation": "Elicit.Slot.998388583326.1549033548241"
+								},
+								"validations": [
+									{
+										"type": "hasEntityResolutionMatch",
+										"prompt": "Slot.Validation.1291172989948.584485952101.309963514882"
+									}
+								]
+							},
+							{
+								"name": "chapter",
+								"type": "AMAZON.NUMBER",
+								"elicitationRequired": true,
+								"confirmationRequired": false,
+								"prompts": {
+									"elicitation": "Elicit.Slot.998388583326.815592070516"
+								}
+							},
+							{
+								"name": "verse",
+								"type": "AMAZON.NUMBER",
+								"elicitationRequired": true,
+								"confirmationRequired": false,
+								"prompts": {
+									"elicitation": "Elicit.Slot.998388583326.828213585404"
+								}
+							}
+						]
+					},
+					{
+						"name": "RemoveVerseFromPlanIntent",
+						"confirmationRequired": false,
+						"prompts": {},
+						"slots": [
+							{
+								"name": "book",
+								"type": "BooksOfTheBibleType",
+								"elicitationRequired": true,
+								"confirmationRequired": false,
+								"prompts": {
+									"elicitation": "Elicit.Slot.867358855970.424913054496"
+								}
+							},
+							{
+								"name": "chapter",
+								"type": "AMAZON.NUMBER",
+								"elicitationRequired": true,
+								"confirmationRequired": false,
+								"prompts": {
+									"elicitation": "Elicit.Slot.867358855970.664934923876"
+								}
+							},
+							{
+								"name": "verse",
+								"type": "AMAZON.NUMBER",
+								"elicitationRequired": true,
+								"confirmationRequired": false,
+								"prompts": {
+									"elicitation": "Elicit.Slot.867358855970.846594688870"
+								}
+							}
+						]
+					},
+					{
+						"name": "ReadVersesWithPausesIntent",
+						"confirmationRequired": false,
+						"prompts": {},
+						"slots": [
+							{
+								"name": "book",
+								"type": "BooksOfTheBibleType",
+								"elicitationRequired": true,
+								"confirmationRequired": false,
+								"prompts": {
+									"elicitation": "Elicit.Slot.842805476157.236458585134"
+								}
+							},
+							{
+								"name": "chapter",
+								"type": "AMAZON.NUMBER",
+								"elicitationRequired": true,
+								"confirmationRequired": false,
+								"prompts": {
+									"elicitation": "Elicit.Slot.842805476157.11093525019"
+								}
+							},
+							{
+								"name": "verse",
+								"type": "AMAZON.NUMBER",
+								"elicitationRequired": true,
+								"confirmationRequired": false,
+								"prompts": {
+									"elicitation": "Elicit.Slot.842805476157.1093148667483"
+								}
+							}
+						]
+					},
+					{
+						"name": "GetBookChapterVerseIntent",
+						"confirmationRequired": false,
+						"prompts": {},
+						"slots": [
+							{
+								"name": "book",
+								"type": "BooksOfTheBibleType",
+								"elicitationRequired": true,
+								"confirmationRequired": false,
+								"prompts": {
+									"elicitation": "Elicit.Slot.1451039687934.204033643600"
+								}
+							},
+							{
+								"name": "chapter",
+								"type": "AMAZON.NUMBER",
+								"elicitationRequired": true,
+								"confirmationRequired": false,
+								"prompts": {
+									"elicitation": "Elicit.Slot.1451039687934.130556456033"
+								}
+							},
+							{
+								"name": "verse",
+								"type": "AMAZON.NUMBER",
+								"elicitationRequired": true,
+								"confirmationRequired": false,
+								"prompts": {
+									"elicitation": "Elicit.Slot.1451039687934.1082766791042"
+								}
+							}
+						]
+					}
+				],
+				"delegationStrategy": "ALWAYS"
+			},
+			"languageModel": {
+				"intents": [
+					{
+						"name": "AMAZON.CancelIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.HelpIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.StopIntent",
+						"samples": []
+					},
+					{
 						"name": "AMAZON.NextIntent",
 						"samples": []
 					},
@@ -839,29 +1324,33 @@
 					{
 						"name": "AMAZON.ResumeIntent",
 						"samples": []
+					},
+					{
+						"name": "AMAZON.NavigateHomeIntent",
+						"samples": []
 					}
-        ]
-      }
-    }
-  },
-  "dialogflow": {
-    "intents": [
-      {
-        "name": "Default Fallback Intent",
-        "auto": true,
-        "webhookUsed": true,
-        "fallbackIntent": true
-      },
-      {
-        "name": "Default Welcome Intent",
-        "auto": true,
-        "webhookUsed": true,
-        "events": [
-          {
-            "name": "WELCOME"
-          }
-        ]
-      }
-    ]
-  }
+				]
+			}
+		}
+	},
+	"dialogflow": {
+		"intents": [
+			{
+				"name": "Default Fallback Intent",
+				"auto": true,
+				"webhookUsed": true,
+				"fallbackIntent": true
+			},
+			{
+				"name": "Default Welcome Intent",
+				"auto": true,
+				"webhookUsed": true,
+				"events": [
+					{
+						"name": "WELCOME"
+					}
+				]
+			}
+		]
+	}
 }

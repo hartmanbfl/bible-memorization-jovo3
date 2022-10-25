@@ -1303,11 +1303,15 @@
 				"variations": [
 					{
 						"type": "PlainText",
-						"value": "I'm sorry but I did not recognize that book of the Bible.  Please try again."
+						"value": "I didn't quite catch that.  Please say the book again."
+					},
+					{
+						"type": "PlainText",
+						"value": "I'm sorry but I did not recognize that book of the Bible.  Please say the book again."
 					}
 				]
 			}
 		]
 	},
-	"version": "53"
+	"version": "9"
 }
