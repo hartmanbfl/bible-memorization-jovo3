@@ -3,6 +3,7 @@
 const Messages = require('../helpers/Messages');
 const Utilities = require('../helpers/Utilities');
 const EsvApiClass = require('../services/EsvApiClass');
+const BibleUtilities = require('../helpers/BibleUtilities');
 
 const esvApiClass = new EsvApiClass();
 
@@ -14,7 +15,11 @@ module.exports = {
       console.log(`HowManyVersesIntent, verseListStr: ${verseListStr}`);
       const verseListObjArray = JSON.parse(verseListStr);
       const numVerses = verseListObjArray.length;
-      this.$speech.addText(`There are ${numVerses} verses currently in your memorization plan.`)
+      if (numVerses === 1) {
+        this.$speech.addText(`There is ${numVerses} verse currently in your memory plan.`)
+      } else {
+        this.$speech.addText(`There are ${numVerses} verses currently in your memory plan.`)
+      }
 
       if (this.$session.$data.keepSeesionOpen) {
         this.$speech.addText(`Whst would you like to do next?`)
@@ -31,40 +36,52 @@ module.exports = {
       // Get the verses from the DB
       const verseListStr = this.$user.$data.verseList;
       const verseListObjArray = JSON.parse(verseListStr);
+      const numVerses = verseListObjArray.length;
 
       // Make sure it isn't empty
-      if (verseListObjArray.length === 0) {
-        this.$speech.addText(`There are currently no verses on your memory list.`)
-          .addText('You can add verses to your list by saying, Add a verse to my list.')
+      if (numVerses === 0) {
+        this.$speech.addText(`There are currently no verses on your memory plan.`)
+          .addText('You can add verses to your plan by saying, Add a verse to my memory plan.')
           .addText(`What would you like to do now?`)
         this.$reprompt.addText(`What would you like to do now?`);
         return this.followUpState('GetActivityState').ask(this.$speech, this.$reprompt);
       }
 
       // iterate over the verses
-      console.log(`Size of verse list - ${verseListObjArray.length}`);
-      this.$speech.addText(`The verses on your current memory list are:`)
-      for (let i = 0; i < verseListObjArray.length; i++) {
+      console.log(`Size of verse list - ${numVerses}`);
+      if (numVerses === 1) {
+        this.$speech.addText(`You have ${numVerses} verse in your memory plan.`)
+          .addText(`The verse currently on your plan is:`)
+      } else {
+        this.$speech.addText(`You have ${numVerses} verses in your memory plan.`)
+          .addText(`The verses currently on your plan are:`)
+      }
+      for (let i = 0; i < numVerses; i++) {
         const book = verseListObjArray[i].book;
         const chapter = verseListObjArray[i].chapter;
         const startVerse = verseListObjArray[i].startVerse;
         const endVerse = verseListObjArray[i].endVerse;
-        this.$speech.addText(`${book} chapter ${chapter} verse ${startVerse}`)
-          .addText(Messages.one_sec_pause)
+        if (i > 0 && i === (numVerses - 1)) {
+          this.$speech.addText(`and `)
+            .addText(`${book} chapter ${chapter} verse ${startVerse}.`)
+            .addText(Messages.one_sec_pause)
+        } else {
+          this.$speech.addText(`${book} chapter ${chapter} verse ${startVerse}, `)
+        }
       }
-      this.$speech.addText(`Would you like to work on memorizing any of these verses?`);
-      this.$reprompt.addText(`Would you like to work on memorizing any of these verses?`);
+      if (numVerses > 1) {
+        this.$speech.addText(`Would you like to work on memorizing any of these verses?`);
+        this.$reprompt.addText(`Would you like to work on memorizing any of these verses?`);
+      } else {
+        this.$speech.addText(`Would you like to work on memorizing this verse?`);
+        this.$reprompt.addText(`Would you like to work on memorizing this verse?`);
+      }
       this.ask(this.$speech, this.$reprompt);
     },
 
     YesIntent() {
       console.log(`In MemoryPlanState, YesIntent`)
-      //this.$speech.addText('Which verse would you like to memorize?')
-      //this.$reprompt.addText('Which verse would you like to memorize?')
-      this.$speech.addText('Ok, I will choose a verse to work on.');
 
-      //TDB create state to get the verse
-//      this.followUpState('PracticeModeState').ask(this.$speech, this.$reprompt);
       return this.toStateIntent('PracticeModeState', 'PracticeAVerseIntent');
 
     },

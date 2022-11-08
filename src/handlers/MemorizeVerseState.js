@@ -7,10 +7,13 @@ const EsvApiClass = require('../services/EsvApiClass');
 
 const esvApiClass = new EsvApiClass();
 
+// Not currently used - it works for short verses, but that's it
+
 module.exports = {
   MemorizeVerseState: {
-    async MemorizeVerseIntent() {
-      const book = this.$inputs.book.value;
+    async AskUserToSayVerseIntent() {
+      //const book = this.$inputs.book.value;
+      const book = this.$inputs.book.key;
       const chapter = this.$inputs.chapter.value;
       const verse = this.$inputs.verse.value;
       console.log(`MemorizeVerseIntent: book->${book}, chapter->${chapter}, verse->${verse}`)

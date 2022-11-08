@@ -51,6 +51,25 @@
 					"name": "WhichVersesInPlanIntent",
 					"slots": [],
 					"samples": [
+						"what is my plan",
+						"on the plan",
+						"what's in the plan",
+						"review the list",
+						"i want to review my memory plan",
+						"whats in the plan",
+						"verses in my plan",
+						"what's in the list",
+						"what do i have on the list",
+						"review my memorization plan",
+						"whats on my plan",
+						"what's on my list please",
+						"for my list",
+						"which verses are on my memorization plan",
+						"list my plan",
+						"list the memorization plan",
+						"list the memory plan",
+						"list the plan",
+						"review my plan",
 						"review my list",
 						"which verses are on my list",
 						"what verses are on my list",
@@ -158,6 +177,11 @@
 						}
 					],
 					"samples": [
+						"delete a verse from my memory plan",
+						"delete {book} chapter {chapter} verse {verse} from my memory plan",
+						"remove {book} chapter {chapter} verse {verse} from my memory plan",
+						"remove {book} chapter {chapter} verse {verse} from my plan",
+						"remove {book} {chapter} {verse} from the plan",
 						"remove a verse from the plan",
 						"remove a verse from my plan",
 						"delete {book} {chapter} {verse} from the plan",
@@ -308,6 +332,8 @@
 						}
 					],
 					"samples": [
+						"Listen to {book} chapter {chapter} verse {verse}",
+						"Listen to {book} {chapter} verse {verse}",
 						"I want to listen to {book} chapter {chapter} verse {verse}",
 						"I want to listen to {book} {chapter} verse {verse}",
 						"I want to listen to {book} {chapter} {verse}",
@@ -368,6 +394,9 @@
 					"name": "PracticeAVerseIntent",
 					"slots": [],
 					"samples": [
+						"memorize a verse from my plan",
+						"memorize a verse from the plan",
+						"memorize a verse from my memory plan",
 						"go to practice mode",
 						"practice",
 						"do a verse from my memory plan",
@@ -384,12 +413,12 @@
 					"name": "MemorizeAVerseIntent",
 					"slots": [],
 					"samples": [
+						"memorize a verse",
 						"learn a verse",
 						"help me to learn a verse",
 						"help me learn a verse",
 						"help me to memorize a verse",
-						"help me memorize a verse",
-						"Memorize a verse"
+						"help me memorize a verse"
 					]
 				},
 				{
@@ -426,6 +455,10 @@
 						"{book} chapter {chapter} verse {verse}",
 						"{book} {chapter} {verse}"
 					]
+				},
+				{
+					"name": "AMAZON.RepeatIntent",
+					"samples": []
 				}
 			],
 			"types": [
@@ -490,6 +523,7 @@
 							"name": {
 								"value": "two peter",
 								"synonyms": [
+									"2nd peter",
 									"second peter"
 								]
 							}
@@ -499,6 +533,7 @@
 							"name": {
 								"value": "one peter",
 								"synonyms": [
+									"1st peter",
 									"first peter"
 								]
 							}
@@ -508,6 +543,7 @@
 							"name": {
 								"value": "three john",
 								"synonyms": [
+									"3rd john",
 									"third john"
 								]
 							}
@@ -517,6 +553,7 @@
 							"name": {
 								"value": "two john",
 								"synonyms": [
+									"2nd john",
 									"second john"
 								]
 							}
@@ -526,6 +563,7 @@
 							"name": {
 								"value": "one john",
 								"synonyms": [
+									"1st john",
 									"first john"
 								]
 							}
@@ -559,6 +597,7 @@
 							"name": {
 								"value": "two timothy",
 								"synonyms": [
+									"2nd timothy",
 									"second timothy"
 								]
 							}
@@ -568,6 +607,7 @@
 							"name": {
 								"value": "one timothy",
 								"synonyms": [
+									"1st timothy",
 									"first timothy"
 								]
 							}
@@ -577,6 +617,7 @@
 							"name": {
 								"value": "two thessalonians",
 								"synonyms": [
+									"2nd thessalonians",
 									"second thessalonians"
 								]
 							}
@@ -586,6 +627,7 @@
 							"name": {
 								"value": "one thessalonians",
 								"synonyms": [
+									"1st thessalonians",
 									"first thessalonians"
 								]
 							}
@@ -619,6 +661,7 @@
 							"name": {
 								"value": "two corinthians",
 								"synonyms": [
+									"2nd corinthians",
 									"second corinthians"
 								]
 							}
@@ -628,6 +671,7 @@
 							"name": {
 								"value": "one corinthians",
 								"synonyms": [
+									"1st corinthians",
 									"first corinthians"
 								]
 							}
@@ -826,6 +870,7 @@
 							"name": {
 								"value": "two chronicles",
 								"synonyms": [
+									"2nd chronicles",
 									"second chronicles"
 								]
 							}
@@ -835,6 +880,7 @@
 							"name": {
 								"value": "one chronicles",
 								"synonyms": [
+									"1st chronicles",
 									"first chronicles"
 								]
 							}
@@ -844,6 +890,7 @@
 							"name": {
 								"value": "two kings",
 								"synonyms": [
+									"2nd kings",
 									"second kings"
 								]
 							}
@@ -853,6 +900,7 @@
 							"name": {
 								"value": "one kings",
 								"synonyms": [
+									"1st kings",
 									"first kings"
 								]
 							}
@@ -862,6 +910,7 @@
 							"name": {
 								"value": "two samuel",
 								"synonyms": [
+									"2nd samuel",
 									"second samuel"
 								]
 							}
@@ -871,6 +920,7 @@
 							"name": {
 								"value": "one samuel",
 								"synonyms": [
+									"1st samuel",
 									"first samuel"
 								]
 							}
@@ -1016,7 +1066,13 @@
 							"confirmationRequired": false,
 							"prompts": {
 								"elicitation": "Elicit.Slot.867358855970.424913054496"
-							}
+							},
+							"validations": [
+								{
+									"type": "hasEntityResolutionMatch",
+									"prompt": "Slot.Validation.1399577520894.1193877117353.499945071466"
+								}
+							]
 						},
 						{
 							"name": "chapter",
@@ -1306,8 +1362,17 @@
 						"value": "I'm sorry but I did not recognize that book of the Bible.  Please try again."
 					}
 				]
+			},
+			{
+				"id": "Slot.Validation.1399577520894.1193877117353.499945071466",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "I did not recognize that book.  Please say a valid book of the Bible."
+					}
+				]
 			}
 		]
 	},
-	"version": "53"
+	"version": "68"
 }

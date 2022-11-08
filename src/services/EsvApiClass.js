@@ -97,8 +97,11 @@ class EsvApiClass {
     });
   }
 
-  readPassageFromESVApi(book, chapter, firstVerse, lastVerse) {
+  readPassageFromESVApi(sourceBook, chapter, firstVerse, lastVerse) {
     return new Promise(async (resolve, reject) => {
+      // Get the name of the book without any spaces (e.g. 1JN for 1st John)
+      let book = BibleUtilities.bibleBooksMap.get(sourceBook);
+
       // See if this is a verse, passage, or chapter request
       if (firstVerse && lastVerse) {
         var verseRequest = (`${book}${chapter}:${firstVerse}-${lastVerse}`).toString();
@@ -116,8 +119,8 @@ class EsvApiClass {
 
       var readVerseUrl = `${esv_http}/passage/text/?q=${verseRequest}${paramList}`;
 
-//      console.log("Param List: " + paramList);
-//      console.log("EsvApiClass: readVerseUrl: " + readVerseUrl);
+      //      console.log("Param List: " + paramList);
+      //      console.log("EsvApiClass: readVerseUrl: " + readVerseUrl);
       var theVerseJson = await this.fetchFromESV(readVerseUrl);
       console.log(`EsvApiClass: theVerseJson:  ${JSON.stringify(theVerseJson)}`);
       var theVerse = (theVerseJson.passages).toString().trim();
@@ -131,31 +134,46 @@ class EsvApiClass {
   // nearest verse to the request
   async validateVerse(book, chapter, verse) {
     return new Promise(async (resolve, reject) => {
-      let verseRequest = (`${book}${chapter}:${verse}`).toString(); 
-      console.log("Calling ESV API with query: " + verseRequest);
 
-      let paramList = "";
-      for (const [key, value] of esvParams.entries()) {
-        paramList = paramList + "&" + key + "=" + value;
-      }
+      // Map the book to the key 
+      console.log(`Looking up value for key: ${book}`);
+      let bookValue = BibleUtilities.bibleBooksMap.get(book);
+      console.log(`Book value: ${bookValue}`);
 
-      let readVerseUrl = `${esv_http}/passage/text/?q=${verseRequest}${paramList}`;
-      let theVerseJson = await this.fetchFromESV(readVerseUrl);
-      let theQuery = (theVerseJson.query).toString();
-
-      // check if theQuery === the requested verse
-      let spaceSplit = theQuery.split(" ");  // this will give book and chapter:verse
-      let queryBook = spaceSplit[0];
-      let queryChapterVerseSplit = spaceSplit[1].split(":");
-      let queryChapter = queryChapterVerseSplit[0];
-      let queryVerse = queryChapterVerseSplit[1];
-      console.log(`Validating [${book} ${chapter}:${verse}], Query Result: [${queryBook} ${queryChapter}:${queryVerse}]`);
-      if (chapter === queryChapter && verse === queryVerse) {
-        resolve(true);
-      } else {
+      // if the book doesn't exist in our map, exit immediately
+      if (typeof bookValue === 'undefined') {
+        console.log(`This book ${book} is undefined, so returning false.`)
         resolve(false);
+      } else {
+
+        let verseRequest = (`${bookValue}${chapter}:${verse}`).toString();
+        console.log("Calling ESV API with query: " + verseRequest);
+
+        let paramList = "";
+        for (const [key, value] of esvParams.entries()) {
+          paramList = paramList + "&" + key + "=" + value;
+        }
+
+        let readVerseUrl = `${esv_http}/passage/text/?q=${verseRequest}${paramList}`;
+        let theVerseJson = await this.fetchFromESV(readVerseUrl);
+        let theQuery = (theVerseJson.query).toString();
+        console.log(`ESV REQUEST: ${readVerseUrl}, RESULT: ${JSON.stringify(theVerseJson, null, 2)}`);
+
+        // check if theQuery === the requested verse
+        let computedBook = BibleUtilities.getBookFromReference(theQuery);
+        let computedRef = BibleUtilities.getBookChapterVerseFromReference(theQuery);
+        console.log(`Computed book: ${computedBook}`);
+        console.log(`Computed reference: ${computedRef.book}, ${computedRef.chapter}, ${computedRef.verse}`);
+        console.log(`Validating [${book} ${chapter}:${verse}], Query Result: [${computedRef.book} ${computedRef.chapter}:${computedRef.verse}]`);
+        // Only validating chapter/verse - this is because the ESV API always gives a result
+        // even if the verse doesn't exist
+        if (chapter === computedRef.chapter && verse === computedRef.verse) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
       }
-    })  
+    })
   }
 
   async findNumberOfVersesWithWordInBible(keyword, exactSearch = true) {

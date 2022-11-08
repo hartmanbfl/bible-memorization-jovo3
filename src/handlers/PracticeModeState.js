@@ -18,18 +18,18 @@ module.exports = {
 
       // make sure there is at least one verse on the list
       if (verseListObjArray.length === 0) {
-        this.$speech.addText(`There are currently no verses on your memory list.`)
-          .addText('You can add verses to your list by saying, Add a verse to my list.')
+        this.$speech.addText(`There are currently no verses on your memory plan.`)
+          .addText('You can add verses to your list by saying, Add a verse to my plan.')
           .addText(`What would you like to do now?`)
         this.$reprompt.addText(`What would you like to do now?`);
         return this.followUpState('GetActivityState').ask(this.$speech, this.$reprompt);
-      } 
+      }
 
       const verseObj = VerseDb.getVerseFromMemory(verseListObjArray);
 
       console.log(`PracticeAVerseIntent: ${verseObj.book} ${verseObj.chapter}:${verseObj.startVerse}`);
 
-      this.$speech.addText(`Let's practice a verse off your memorization list.`);
+      this.$speech.addText(`Let's work on memorizing a verse off your memory plan.`);
 
       // Copy to request data to pass to other intent
       this.$data.practiceMode = true;
@@ -54,7 +54,7 @@ module.exports = {
         this.$data.practiceMode = false;  // reset just in case
         this.$data.repeatMode = false;  // reset just in case
       } else {
-        book = this.$inputs.book.value;
+        book = this.$inputs.book.key;
         chapter = this.$inputs.chapter.value;
         startVerse = this.$inputs.verse.value;
       }
@@ -64,67 +64,96 @@ module.exports = {
       this.$session.$data.currentChapter = chapter;
       this.$session.$data.currentStartVerse = startVerse;
 
-      this.$speech.addText(`Ok, I am going to gradually say the verse and have you repeat what I say.`)
-        .addText(` Let's get started.`)
-        .addText(`${book} chapter ${chapter} verse ${startVerse}.`)
-        .addText(Messages.two_sec_pause);
+      // Need to ensure that this is a valid Bible reference
+      const isValid = await esvApiClass.validateVerse(book, chapter, startVerse);
+      console.log(`ReadVerseWithPausesIntent valid: ${isValid}`);
 
-      // Get the verse and find number of words
-      var myVerse = await esvApiClass.readPassageFromESVApi(book, chapter, startVerse);
-      this.$session.$data.currentPassage = myVerse;
+      if (!isValid) {
+        this.$speech.addText(`${book} chapter ${chapter} verse ${startVerse} does not exist in the Bible,`)
+          .addText(Messages.one_sec_pause)
+          .addText(`What would you like to do now?`)
 
-      console.log(`Verse ${myVerse}`);
+        this.$reprompt.addText(`What would you like to do now?`)
+        this.followUpState('GetActivityState').ask(this.$speech, this.$reprompt);
+      } else {
 
-      // break in arrays by punctuation
-      let fragmentArray = myVerse.split(/[\\,.;:!?]/);
-      console.log(`number of fragments: ${fragmentArray.length}`);
+        // Get the verse from ESV API
+        const myVerse = await esvApiClass.readPassageFromESVApi(book, chapter, startVerse);
 
-      let verseWithoutPunct = Utilities.removePunctuation(myVerse);
+        this.$speech.addText(`Ok, first I am going to read the entire verse for you to hear.`)
+          .addText(`${book} chapter ${chapter} verse ${startVerse}.`)
+          .addText(Messages.prosodyRate90Msg)
+          .addText(`${myVerse}`)
+          .addText(Messages.endProsodyMsg)
+          .addText(Messages.one_sec_pause)
+          .addText(`Now I am going to say each segment of the verse and have you repeat what I say.`)
+          .addText(` Let's get started.`)
+          .addText(`${book} chapter ${chapter} verse ${startVerse}.`)
+          .addText(Messages.two_sec_pause);
 
-      // First say the verse one fragment at a time, pausing for a short period
-      // between each fragment
-      this.$speech.addText(Messages.prosodyRate90Msg)
-      for (let i = 0; i < fragmentArray.length; i++) {
-        // how many words are in this fragment?
-        let numWords = fragmentArray[i].split(" ").length;
-        let pause = Utilities.getPauseCount(numWords);
-        console.log(`Number of words: ${numWords}.  Pausing for ${pause} seconds.`);
-        let breakTime = `<break time="${pause}s"/>`
+        // Get the number of words in the verse
+        this.$session.$data.currentPassage = myVerse;
 
-        this.$speech.addText(`${fragmentArray[i]},`)
-          .addText(breakTime);
-      }
-      this.$speech.addText(Messages.endProsodyMsg);
+        console.log(`Verse ${myVerse}`);
 
-      // Now build one phrase at a time
-      this.$speech.addText(Messages.prosodyRate90Msg)
-      for (let i = 0; i < fragmentArray.length; i++) {
-//        let pause = i + 3;
-//        pause >= 10 ? pause = 10 : pause = pause;
+        // break in arrays by punctuation
+        let originalFragmentArray = myVerse.split(/[\\,.;:!?]/);
+        console.log(`number of original fragments: ${originalFragmentArray.length}`);
 
-        // Need to add this fragment, plus any previous ones
-        let currentPhrase = "";
-        for (let j = 0; j < i; j++) {
-          currentPhrase = currentPhrase + fragmentArray[j] + `,`;
+        // Remove empty strings from array
+        let fragmentArray = originalFragmentArray.filter(element => {
+          return element !== '';
+        });          
+        console.log(`number of fragments: ${fragmentArray.length}`);
+
+//        let verseWithoutPunct = Utilities.removePunctuation(myVerse);
+
+        // First say the verse one fragment at a time, pausing for a short period
+        // between each fragment
+        this.$speech.addText(Messages.prosodyRate90Msg)
+        for (let i = 0; i < fragmentArray.length; i++) {
+          // how many words are in this fragment?
+          let numWords = fragmentArray[i].split(" ").length;
+          let pause = Utilities.getPauseCount(numWords);
+          console.log(`Fragment[${i}]: ${fragmentArray[i]}`)
+          console.log(`Number of words: ${numWords}.  Pausing for ${pause} seconds.`);
+          let breakTime = `<break time="${pause}s"/>`
+
+          this.$speech.addText(`${fragmentArray[i]},`)
+            .addText(breakTime);
         }
-        // add the word plus the amount of pause based on the 
-        // current number of words
-        let numWords = currentPhrase.split(" ").length;
-        let pause = Utilities.getPauseCount(numWords);
-        console.log(`Number of words: ${numWords}.  Pausing for ${pause} seconds.`);
-        let breakTime = `<break time="${pause}s"/>`
+        this.$speech.addText(Messages.endProsodyMsg);
 
-        this.$speech.addText(`${currentPhrase} ${breakTime}`);
+        // Now build one phrase at a time
+        this.$speech.addText(`Now let's try to say the whole verse by adding a segment each time.  Just repeat after me.`)
+        this.$speech.addText(Messages.prosodyRate90Msg)
+        for (let i = 0; i < fragmentArray.length; i++) {
+
+          // Need to add this fragment, plus any previous ones
+          let currentPhrase = "";
+          for (let j = 0; j <= i; j++) {
+            currentPhrase = currentPhrase + fragmentArray[j] + `,`;
+//debug            console.log(`[${i}][${j}]: currentPhrase-> ${currentPhrase}`);
+          }
+          // add the word plus the amount of pause based on the 
+          // current number of words
+          let numWords = currentPhrase.split(" ").length;
+          let pause = Utilities.getPauseCount(numWords);
+          console.log(`Number of words: ${numWords}.  Pausing for ${pause} seconds.`);
+          let breakTime = `<break time="${pause}s"/>`
+
+          this.$speech.addText(`${currentPhrase} ${breakTime}`);
+        }
+        this.$speech.addText(Messages.endProsodyMsg);
+
+        // get a rating from the user
+        this.$speech.addText(Messages.one_sec_pause)
+          .addText(`On a scale of one to five, how well do you have this verse memorized?`)
+
+        this.$reprompt.addText(`On a scale of one to five, how well do you have this verse memorized?`);
+
+        this.followUpState('GetRatingState').ask(this.$speech, this.$reprompt);
       }
-      this.$speech.addText(Messages.endProsodyMsg);
-
-      // get a rating from the user
-      this.$speech.addText(Messages.one_sec_pause)
-        .addText(`On a scale of one to five, how well would you say that you know the verse?`)
-
-      this.$reprompt.addText(`On a scale of one to five, how well did you know this verse?`);
-
-      this.followUpState('GetRatingState').ask(this.$speech, this.$reprompt);
     }
   },
   GetRatingState: {
@@ -158,6 +187,8 @@ module.exports = {
           && verse === verseListObjArray[i].startVerse) {
           console.log(`GetRatingIntent: we have a match`)
           verseListObjArray[i].rating = rating;
+          // Also add timestamp when it was last practiced
+          verseListObjArray[i].lastPracticed = Utilities.getTimestampInSeconds();
           verseInPlan = true;
           break;
         }
@@ -172,6 +203,7 @@ module.exports = {
         this.$speech.addText(`This verse is not currently in your memory plan.  Would you like to add it?`)
         this.$reprompt.addText(`This verse is not currently in your memory plan.  Would you like to add it?`)
         this.$data.rating = rating;
+        this.$data.timestamp = Utilities.getTimestampInSeconds();
         return this.followUpState('AddNewVerseToPlanState').ask(this.$speech, this.$reprompt);
       }
 
@@ -189,6 +221,14 @@ module.exports = {
 
     StopIntent() {
       return this.toStatelessIntent('StopIntent');
+    },
+
+    // Allow the user to go back to "main menu"
+    CancelIntent() {
+      console.log(`GetRatingState, CancelIntent`);
+      this.$speech.addText(`Ok, Cancelled. What would you like to do now?`);
+      this.$reprompt.addText(`What would you like to do now?`);
+      return this.followUpState('GetActivityState').ask(this.$speech, this.$reprompt);
     },
 
     END() {
@@ -218,7 +258,7 @@ module.exports = {
       const book = this.$session.$data.currentBook;
       const chapter = this.$session.$data.currentChapter;
       const verse = this.$session.$data.currentStartVerse;
-      this.$speech.addText(`Ok, I will add ${book} ${chapter} verse ${verse} to your list.`)
+      this.$speech.addText(`Ok, I will add ${book} ${chapter} verse ${verse} to your memory plan.`)
         .addText(`What would you like to do now?`);
       this.$reprompt.addText(`What would you like to do now?`);
 
@@ -227,11 +267,12 @@ module.exports = {
       const verseListObjArray = JSON.parse(verseListStr);
 
       const newObj = {
-        book:book,
+        book: book,
         chapter: chapter,
         startVerse: verse,
         endVerse: verse,
-        rating: this.$data.rating
+        rating: this.$data.rating,
+        lastPracticed: this.$data.timestamp
       }
       // Add the new verse to the database
       verseListObjArray.push(newObj);

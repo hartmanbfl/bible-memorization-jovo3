@@ -4,12 +4,12 @@ const Messages = require('../helpers/Messages');
 module.exports = {
   GetActivityState: {
     GetOptionsIntent() {
-      this.$speech.addText('Here are some of the different activities that you can do with this skill.')
+      this.$speech.addText('Here are some of the different activities that you can do with Bible Trainer.')
         .addText('Listen to a verse.')
         .addText('Memorize a verse.')
-        .addText('Practice a verse from your memory plan.')
+        .addText('Memorize a verse from my memory plan.')
         .addText('Review my memory plan.')
-        .addText('Add or remove a verse from your memory plan.')
+        .addText('Add or remove a verse from my memory plan.')
         .addText(Messages.one_sec_pause)
         .addText('So, what would you like to do?');
 
@@ -62,7 +62,12 @@ module.exports = {
     },
 
     HelpIntent() {
-      return this.toGlobalIntent('HelpIntent');
+      return this.toStatelessIntent('HelpIntent');
+    },
+
+    Unhandled() {
+      console.log(`In GetActivityState UNHANDLED intent.`);
+      return this.tell(`Goodbye.`);
     }
   }
 }

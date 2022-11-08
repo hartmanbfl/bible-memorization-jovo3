@@ -84,10 +84,15 @@ function getPauseCount(numWords) {
   return pause;
 }
 
+function getTimestampInSeconds() {
+  return Math.floor(Date.now() / 1000);
+}
+
 
 module.exports = {
   getPauseCount,
   getRandomNumber,
+  getTimestampInSeconds,
   removePunctuation,
   shuffle,
   similarity,
